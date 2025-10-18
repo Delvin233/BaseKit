@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0}
+  m_Name: BaseAuthConfig
+  BaseRpcUrl: https://mainnet.base.org
+  BaseChainId: 8453
+  EnsRegistryAddress: 0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e
+  WalletConnectProjectId: 
+  Web3AuthClientId: 
+  EnableWeb3AuthFallback: 1
+  DefaultAvatar: {fileID: 0}
+  PrimaryColor: {r: 0, g: 0.5, b: 1, a: 1}
+  ShowBaseNamePrompt: 1
+  SessionExpirationDays: 30
+  NameCacheExpirationHours: 24
+  AvatarCacheExpirationHours: 6

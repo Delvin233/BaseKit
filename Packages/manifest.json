@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "com.unity.ugui": "1.0.0",
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.test-runner": "1.1.33",
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0"
+  }
+}
