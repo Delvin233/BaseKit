@@ -20,6 +20,7 @@ BaseKit allows Godot developers to integrate "Sign in with Base" functionality d
 ## 🎯 Demo: Chrome Dino with Web3 Identity
 
 Our demo game is a Chrome Dino clone where:
+
 - Players sign in with their Base wallet
 - High scores show Base Names instead of "Anonymous"
 - Leaderboards display actual Web3 identities
@@ -76,7 +77,6 @@ BaseKit/
 
 - [5-Day Development Plan](BaseKit%20—%205-Day%20Development%20Plan.md)
 - [Godot Project Structure](BaseKit%20—%20Godot%20Project%20Structure.md)
-- [Original Project Structure](base_names_project_structure.md)
 
 ## 🎮 Why BaseKit?
 
