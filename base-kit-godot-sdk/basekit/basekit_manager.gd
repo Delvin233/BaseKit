@@ -16,7 +16,7 @@ var is_connected: bool = false
 
 # Components
 var wallet_connector: WalletConnector
-var basename_resolver
+var basename_resolver: BaseNameResolver
 var session_manager
 
 func _ready():
@@ -28,9 +28,15 @@ func _setup_components():
 	wallet_connector = WalletConnector.new()
 	add_child(wallet_connector)
 	
+	# Create basename resolver
+	basename_resolver = BaseNameResolver.new()
+	add_child(basename_resolver)
+	
 	# Connect signals
 	wallet_connector.connection_success.connect(_on_wallet_connection_success)
 	wallet_connector.connection_failed.connect(_on_wallet_connection_failed)
+	basename_resolver.name_resolved.connect(_on_name_resolved)
+	basename_resolver.avatar_resolved.connect(_on_avatar_resolved)
 
 # Main API Functions
 func connect_wallet() -> void:
@@ -71,17 +77,28 @@ func _on_wallet_connection_success(address: String):
 	current_address = address
 	is_connected = true
 	
-	# Try to get Base Name (mock for now)
-	if BaseKitConfig.TEST_ADDRESSES.has(address):
-		current_basename = BaseKitConfig.TEST_ADDRESSES[address]
-	else:
-		current_basename = ""  # Will be resolved later
-	
 	print("[BaseKit] Wallet connected successfully: ", address)
 	wallet_connected.emit(address)
 	
-	if current_basename != "":
-		basename_resolved.emit(address, current_basename)
+	# Resolve Base Name using the resolver
+	if basename_resolver:
+		basename_resolver.resolve_base_name(address)
+
+func _on_name_resolved(address: String, name: String):
+	if address == current_address:
+		current_basename = name
+		print("[BaseKit] Base Name resolved: ", name)
+		basename_resolved.emit(address, name)
+		
+		# Also try to get avatar
+		if basename_resolver and name.ends_with(".base.eth"):
+			basename_resolver.resolve_avatar(name)
+
+func _on_avatar_resolved(name: String, avatar_url: String):
+	if name == current_basename:
+		print("[BaseKit] Avatar resolved: ", avatar_url)
+		# For now, just log the URL - we'd need to download the image
+		# avatar_loaded.emit(texture) - would emit actual texture
 
 func _on_wallet_connection_failed(error: String):
 	print("[BaseKit] Wallet connection failed: ", error)
