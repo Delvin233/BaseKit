@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbc78517ce2xt"]
+
+[ext_resource type="Script" uid="uid://bmipjw4le4m30" path="res://tests/rpc_test.gd" id="1_test123"]
+
+[node name="RPCTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_test123")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Base RPC Connection Test"
+horizontal_alignment = 1
+
+[node name="TestButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Test Base RPC"
+
+[node name="ResultLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ready to test"
+horizontal_alignment = 1
+
+[node name="LogText" type="TextEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+editable = false
