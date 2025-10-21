@@ -23,9 +23,13 @@ func connect_wallet() -> void:
 	# Start local HTTP server to receive callback
 	_start_callback_server()
 	
-	# Wait a moment for server to be ready, then open browser
-	await get_tree().create_timer(0.5).timeout
-	_open_browser_auth()
+	# Wait longer for server to be ready, then open browser
+	await get_tree().create_timer(1.0).timeout
+	if http_server and http_server.is_listening():
+		_open_browser_auth()
+	else:
+		print("[BrowserOAuth] Server not ready, connection failed")
+		connection_failed.emit("Failed to start local server")
 
 # Generate unique session ID
 func _generate_session_id() -> String:
@@ -51,7 +55,7 @@ func _start_callback_server() -> void:
 	
 	if not port_found:
 		print("[BrowserOAuth] Failed to find available port (8080-8090)")
-		connection_failed.emit("No available ports for local server")
+		connection_failed.emit("Port conflict: All ports 8080-8090 are busy. Please close other applications using these ports.")
 		return
 	
 	# Start polling for connections
@@ -146,6 +150,8 @@ Content-Type: text/html
 # Open browser to authentication page
 func _open_browser_auth() -> void:
 	var auth_url = "http://localhost:" + str(server_port) + "/auth"
+	print("[BrowserOAuth] Server listening on port: ", server_port)
+	print("[BrowserOAuth] Server is_listening: ", http_server.is_listening())
 	print("[BrowserOAuth] Opening browser to: ", auth_url)
 	OS.shell_open(auth_url)
 
@@ -289,6 +295,9 @@ func _on_wallet_connected(address: String) -> void:
 	connected_address = address
 	print("[BrowserOAuth] ✅ Wallet connected: ", address)
 	wallet_connected.emit(address)
+	
+	# Stop the server after successful connection
+	_stop_callback_server()
 
 # Disconnect wallet
 func disconnect_wallet() -> void:

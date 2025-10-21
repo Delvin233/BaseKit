@@ -35,6 +35,12 @@ layout_mode = 2
 text = "Connect your wallet to play!"
 horizontal_alignment = 1
 
+[node name="AvatarDisplay" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+stretch_mode = 5
+
 [node name="GameArea" type="Panel" parent="VBoxContainer"]
 layout_mode = 2
 custom_minimum_size = Vector2(0, 200)
