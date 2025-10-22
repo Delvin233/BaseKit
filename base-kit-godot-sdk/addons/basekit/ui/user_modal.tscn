@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://user_modal"]
+
+[ext_resource type="Script" path="res://addons/basekit/ui/user_modal.gd" id="1_modal"]
+
+[node name="UserModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_modal")
+
+[node name="ModalBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.5)
+
+[node name="ModalPanel" type="Panel" parent="ModalBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+
+[node name="VBox" type="VBoxContainer" parent="ModalBG/ModalPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="Title" type="Label" parent="ModalBG/ModalPanel/VBox"]
+layout_mode = 2
+text = "👤 Your Web3 Identity"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="ModalBG/ModalPanel/VBox"]
+layout_mode = 2
+text = "alice.base.eth"
+horizontal_alignment = 1
+
+[node name="AddressLabel" type="Label" parent="ModalBG/ModalPanel/VBox"]
+layout_mode = 2
+text = "0x1234...5678"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="ModalBG/ModalPanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="ModalBG/ModalPanel/VBox"]
+layout_mode = 2
+
+[node name="CopyButton" type="Button" parent="ModalBG/ModalPanel/VBox/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "📋 Copy Name"
+
+[node name="DisconnectButton" type="Button" parent="ModalBG/ModalPanel/VBox/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🚪 Disconnect"
