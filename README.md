@@ -47,9 +47,11 @@ BaseKit/
 ├── base-kit-godot-sdk/          # Main Godot project
 │   ├── basekit/                 # SDK core files
 │   ├── ui/                      # Login UI components
-│   ├── dino_game/               # Chrome Dino demo
-│   └── examples/                # Integration examples
+│   ├── tests/                   # Test scenes and scripts
+│   ├── examples/                # Integration examples
+│   └── simple_demo.tscn         # Main demo
 ├── docs/                        # Documentation
+├── ROADMAP.md                   # Future vision
 └── README.md                    # This file
 ```
 
