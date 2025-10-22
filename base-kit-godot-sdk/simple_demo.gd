@@ -2,7 +2,8 @@ extends Control
 
 @onready var basekit_button = $VBoxContainer/BaseKitButton
 @onready var welcome_label = $VBoxContainer/WelcomeLabel
-@onready var avatar_display = $VBoxContainer/AvatarDisplay
+@onready var avatar_bg = $VBoxContainer/AvatarContainer/AvatarBG
+@onready var avatar_text = $VBoxContainer/AvatarContainer/AvatarText
 @onready var game_area = $VBoxContainer/GameArea
 
 func _ready():
@@ -27,17 +28,27 @@ func _on_wallet_connected(address: String, base_name: String):
 func _on_wallet_disconnected():
 	print("🎮 Player disconnected")
 	welcome_label.text = "Connect your wallet to play!"
-	avatar_display.texture = null
+	avatar_text.text = "?"
+	avatar_bg.color = Color(0.3, 0.3, 0.3, 0.5)
 	_update_game_state()
 
 func _on_avatar_loaded(texture: Texture2D):
-	print("🎮 Avatar loaded!")
-	avatar_display.texture = texture
+	print("🎮 Avatar loaded (but using text instead)")
+	# We're using text avatars now, so ignore this
+
+func _create_text_avatar(name: String):
+	# Create simple text avatar from first 3 letters
+	var letters = name.substr(0, 3).to_upper()
+	avatar_text.text = letters
+	avatar_bg.color = Color(0.2, 0.4, 0.8)  # Blue background
+	print("🎮 Created text avatar: ", letters)
 
 func _on_basename_resolved(address: String, name: String):
 	print("🎮 Base Name resolved: ", name)
 	# Update welcome message with the resolved name
 	welcome_label.text = "Welcome, " + name + "!"
+	# Create simple text avatar
+	_create_text_avatar(name)
 
 func _update_game_state():
 	var is_connected = BaseKit.is_wallet_connected()

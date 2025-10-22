@@ -96,6 +96,9 @@ func _try_rpc_method(address: String) -> void:
 	var formatted = _format_address(address)
 	name_cache[address] = formatted
 	name_resolved.emit(address, formatted)
+	
+	# Also generate avatar for wallet addresses
+	resolve_avatar(formatted)
 
 # Avatar resolution with real IPFS support
 func resolve_avatar(base_name: String) -> void:
@@ -106,12 +109,12 @@ func resolve_avatar(base_name: String) -> void:
 		avatar_resolved.emit(base_name, avatar_cache[base_name])
 		return
 	
-	# For .base.eth names, try to get real avatar
+	# Always try to get real avatar first, then fallback
 	if base_name.ends_with(".base.eth"):
 		_try_ens_avatar(base_name)
 	else:
-		# Generate deterministic avatar for non-ENS addresses
-		var avatar_url = "https://api.dicebear.com/7.x/identicon/svg?seed=" + base_name
+		# Generate deterministic avatar for non-ENS addresses (PNG format)
+		var avatar_url = "https://api.dicebear.com/7.x/identicon/png?seed=" + base_name + "&size=64"
 		avatar_cache[base_name] = avatar_url
 		avatar_resolved.emit(base_name, avatar_url)
 
@@ -199,14 +202,16 @@ func _handle_ens_metadata_response(response_code: int, body: PackedByteArray, ad
 func _handle_ens_avatar_response(response_code: int, body: PackedByteArray, name: String):
 	if response_code == 200:
 		# Got avatar from ENS metadata service
-		var avatar_url = body.get_string_from_utf8()
-		if avatar_url != "":
+		var avatar_url = body.get_string_from_utf8().strip_edges()
+		if avatar_url != "" and not avatar_url.begins_with("<"):
+			print("[SmartResolver] Found ENS avatar: ", avatar_url)
 			avatar_cache[name] = avatar_url
 			avatar_resolved.emit(name, avatar_url)
 			return
 	
-	# Fallback to generated avatar
-	var fallback_url = "https://api.dicebear.com/7.x/identicon/svg?seed=" + name
+	print("[SmartResolver] No ENS avatar found, using generated avatar")
+	# Fallback to generated avatar (PNG format)
+	var fallback_url = "https://api.dicebear.com/7.x/identicon/png?seed=" + name + "&size=64"
 	avatar_cache[name] = fallback_url
 	avatar_resolved.emit(name, fallback_url)
 

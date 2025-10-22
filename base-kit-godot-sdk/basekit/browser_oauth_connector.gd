@@ -181,7 +181,7 @@ func _get_auth_html() -> String:
 			<p id="statusText">Checking for MetaMask...</p>
 		</div>
 		
-		<button id="connectBtn" onclick="connectWallet()">🦊 Connect MetaMask</button>
+		<button id="connectBtn" onclick="connectWallet()">Connect MetaMask</button>
 		<button onclick="window.close()">Cancel</button>
 		
 		<div style="margin-top: 30px; font-size: 14px; color: #888;">
