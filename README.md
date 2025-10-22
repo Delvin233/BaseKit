@@ -77,6 +77,7 @@ BaseKit/
 
 - [5-Day Development Plan](BaseKit%20—%205-Day%20Development%20Plan.md)
 - [Godot Project Structure](BaseKit%20—%20Godot%20Project%20Structure.md)
+- [🚀 Future Roadmap](ROADMAP.md) - Vision for Web3 Gaming Infrastructure
 
 ## 🎮 Why BaseKit?
 
