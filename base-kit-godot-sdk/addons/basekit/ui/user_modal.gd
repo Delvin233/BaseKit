@@ -7,10 +7,8 @@ signal disconnect_requested()
 
 @onready var modal_bg = $ModalBG
 @onready var modal_panel = $ModalBG/ModalPanel
-@onready var name_label = $ModalBG/ModalPanel/VBox/NameLabel
-@onready var address_label = $ModalBG/ModalPanel/VBox/AddressLabel
-@onready var copy_button = $ModalBG/ModalPanel/VBox/ButtonsHBox/CopyButton
-@onready var disconnect_button = $ModalBG/ModalPanel/VBox/ButtonsHBox/DisconnectButton
+@onready var copy_button = $ModalBG/ModalPanel/ButtonsHBox/CopyButton
+@onready var disconnect_button = $ModalBG/ModalPanel/ButtonsHBox/DisconnectButton
 
 func _ready():
 	if not Engine.is_editor_hint():
@@ -25,11 +23,7 @@ func _ready():
 	visible = false
 
 func show_modal(base_name: String, address: String):
-	# Make sure nodes exist before setting text
-	if name_label:
-		name_label.text = base_name
-	if address_label:
-		address_label.text = address
+	# Simple modal - just show the buttons
 	visible = true
 	
 	# Animate in
