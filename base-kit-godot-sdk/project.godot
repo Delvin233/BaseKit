@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BaseKit-Godot-SDK"
-run/main_scene="uid://b8qxvw7n8qxqy"
+run/main_scene="res://simple_demo.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -47,9 +47,11 @@ BaseKit/
 ├── base-kit-godot-sdk/          # Main Godot project
 │   ├── basekit/                 # SDK core files
 │   ├── ui/                      # Login UI components
-│   ├── dino_game/               # Chrome Dino demo
-│   └── examples/                # Integration examples
+│   ├── tests/                   # Test scenes and scripts
+│   ├── examples/                # Integration examples
+│   └── simple_demo.tscn         # Main demo
 ├── docs/                        # Documentation
+├── ROADMAP.md                   # Future vision
 └── README.md                    # This file
 ```
 
@@ -77,6 +79,7 @@ BaseKit/
 
 - [5-Day Development Plan](BaseKit%20—%205-Day%20Development%20Plan.md)
 - [Godot Project Structure](BaseKit%20—%20Godot%20Project%20Structure.md)
+- [🚀 Future Roadmap](ROADMAP.md) - Vision for Web3 Gaming Infrastructure
 
 ## 🎮 Why BaseKit?
 
