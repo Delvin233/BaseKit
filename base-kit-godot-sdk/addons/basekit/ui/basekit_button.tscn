@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://c30yebwmbtxq"]
 
-[ext_resource type="Script" path="res://addons/basekit/ui/basekit_button.gd" id="1_basekit"]
+[ext_resource type="Script" uid="uid://1a3p8p51mss8" path="res://addons/basekit/ui/basekit_button.gd" id="1_basekit"]
 
 [node name="BaseKitButton" type="Button"]
 offset_left = 71.0
 offset_top = 43.0
 offset_right = 215.0
 offset_bottom = 74.0
-text = "Connect Wallet"
+text = "Sign In"
 script = ExtResource("1_basekit")

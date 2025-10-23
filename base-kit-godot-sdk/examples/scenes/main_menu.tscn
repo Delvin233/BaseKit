@@ -1,0 +1,169 @@
+[gd_scene load_steps=13 format=3 uid="uid://8h7dkaedwx25"]
+
+[ext_resource type="Script" uid="uid://de634nom464p5" path="res://examples/scripts/main_menu.gd" id="1_3h1lu"]
+[ext_resource type="Texture2D" uid="uid://g2ct8ne3u0sx" path="res://examples/assets/sprites/menu_background.png" id="1_ia7e0"]
+[ext_resource type="PackedScene" uid="uid://c30yebwmbtxq" path="res://addons/basekit/ui/basekit_button.tscn" id="2_r3i22"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3i22"]
+texture = ExtResource("1_ia7e0")
+modulate_color = Color(0.51215947, 0.51215947, 0.51215947, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3i22"]
+bg_color = Color(0.7872, 0.93696, 0.96, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.18674503, 0.15990001, 0.39, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h1lu"]
+bg_color = Color(0.7872, 0.93696, 0.96, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.18674503, 0.15990001, 0.39, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5g5b5"]
+bg_color = Color(0.7872, 0.93696, 0.96, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.18674503, 0.15990001, 0.39, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3i22"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syt0u"]
+bg_color = Color(0.7872, 0.93696, 0.96, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.18674503, 0.15990001, 0.39, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy08y"]
+bg_color = Color(0.7872, 0.93696, 0.96, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.18674503, 0.15990001, 0.39, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnqls"]
+bg_color = Color(0.7872, 0.93696, 0.96, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.18674503, 0.15990001, 0.39, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2lsc"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_3h1lu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -330.0
+offset_right = 578.0
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r3i22")
+
+[node name="BaseKitButton" parent="." instance=ExtResource("2_r3i22")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -102.0
+offset_right = -60.0
+offset_bottom = -50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.1568, 0.08399999, 0.42, 1)
+theme_override_colors/font_focus_color = Color(0.05, 0.05, 0.05, 1)
+theme_override_colors/font_pressed_color = Color(0.85066664, 1, 0.72, 1)
+theme_override_colors/font_hover_color = Color(0.02, 0.02, 0.02, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.32400003, 0.46080002, 0.54, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_r3i22")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3h1lu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5g5b5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r3i22")
+text = "Sign In"
+
+[node name="Start_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -25.0
+offset_right = -89.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0912, 0.2596667, 0.38, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.01, 0.01, 0.01, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_syt0u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oy08y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tnqls")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t2lsc")
+text = "Start Game"
+
+[node name="game_title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -219.0
+offset_right = 225.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Coin Adventure"
+horizontal_alignment = 1
+vertical_alignment = 1
