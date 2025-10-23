@@ -90,6 +90,9 @@ func _handle_callback_request(client: StreamPeerTCP) -> void:
 	elif "GET /callback" in request and "address=" in request:
 		# Handle wallet callback
 		_handle_wallet_callback(client, request)
+	elif "GET / " in request or "GET /\n" in request:
+		# Redirect root to auth
+		_serve_redirect(client)
 	else:
 		# 404 response
 		_serve_404(client)
@@ -129,6 +132,12 @@ Content-Type: text/html
 	
 	# Emit success
 	_on_wallet_connected(address)
+
+# Serve redirect to auth
+func _serve_redirect(client: StreamPeerTCP) -> void:
+	var response = "HTTP/1.1 302 Found\nLocation: /auth\n\n"
+	client.put_data(response.to_utf8_buffer())
+	client.disconnect_from_host()
 
 # Serve 404 page
 func _serve_404(client: StreamPeerTCP) -> void:
