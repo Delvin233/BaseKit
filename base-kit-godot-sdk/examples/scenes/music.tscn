@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgt4qcuxiwl4h"]
+
+[ext_resource type="AudioStream" uid="uid://dyom2pxnjrv44" path="res://assets/music/𝐺𝑂𝑅𝐸_プロアクティブシューター_01_即興爆薬.mp3" id="1_qrhyo"]
+
+[node name="music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_qrhyo")
+autoplay = true
+bus = &"Music"
