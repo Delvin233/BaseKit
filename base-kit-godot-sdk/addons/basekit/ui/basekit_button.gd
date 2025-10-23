@@ -69,21 +69,21 @@ func _on_basename_resolved(address: String, name: String):
 
 func _update_button_appearance():
 	if Engine.is_editor_hint():
-		text = "🦕 BaseKit Button"
+		text = "Sign In"
 		return
 	
 	if is_connected:
 		if show_base_name:
 			var base_name = BaseKit.get_base_name()
-			text = "👋 " + base_name
+			text = "🔵 " + base_name
 		else:
 			text = "✅ Connected"
 	else:
 		match button_style:
 			ButtonStyle.CONNECT_WALLET:
-				text = "🔗 Connect Wallet"
+				text = "Connect Wallet"
 			ButtonStyle.SIGN_IN_BASE:
-				text = "🦕 Sign in with Base"
+				text = "Sign in with Base"
 			ButtonStyle.WEB3_LOGIN:
 				text = "🌐 Web3 Login"
 			ButtonStyle.CUSTOM:
