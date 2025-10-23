@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://8h7dkaedwx25"]
 
-[ext_resource type="Script" uid="uid://de634nom464p5" path="res://examples/scripts/main_menu.gd" id="1_3h1lu"]
+[ext_resource type="Script" path="res://examples/scripts/main_menu.gd" id="1_3h1lu"]
 [ext_resource type="Texture2D" uid="uid://g2ct8ne3u0sx" path="res://examples/assets/sprites/menu_background.png" id="1_ia7e0"]
 [ext_resource type="PackedScene" uid="uid://c30yebwmbtxq" path="res://addons/basekit/ui/basekit_button.tscn" id="2_r3i22"]
 
@@ -107,10 +107,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -292.0
-offset_top = -102.0
-offset_right = -60.0
-offset_bottom = -50.5
+offset_left = -318.0
+offset_top = -108.0
+offset_right = -22.0
+offset_bottom = -56.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.1568, 0.08399999, 0.42, 1)
@@ -123,7 +123,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_r3i22")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3h1lu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5g5b5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r3i22")
-text = "Sign In"
 
 [node name="Start_button" type="Button" parent="."]
 layout_mode = 1

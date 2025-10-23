@@ -81,7 +81,7 @@ func _update_button_appearance():
 	else:
 		match button_style:
 			ButtonStyle.CONNECT_WALLET:
-				text = "Connect Wallet"
+				text = "Sign In with Base"
 			ButtonStyle.SIGN_IN_BASE:
 				text = "Sign in with Base"
 			ButtonStyle.WEB3_LOGIN:
