@@ -77,9 +77,13 @@ BaseKit/
 
 ## 📚 Documentation
 
-- [5-Day Development Plan](BaseKit%20—%205-Day%20Development%20Plan.md)
-- [Godot Project Structure](BaseKit%20—%20Godot%20Project%20Structure.md)
-- [🚀 Future Roadmap](ROADMAP.md) - Vision for Web3 Gaming Infrastructure
+For comprehensive documentation, see the [Documentation/](Documentation/) folder:
+
+- [📋 Requirements](Documentation/Basekit%20-%20Requirements.md) - Complete feature specifications
+- [🎨 Design](Documentation/Basekit%20-%20Design.md) - Architecture and design decisions
+- [📅 5-Day Development Plan](Documentation/BaseKit%20—%205-Day%20Development%20Plan.md) - Detailed sprint timeline
+- [🏗️ Godot Project Structure](Documentation/BaseKit%20—%20Godot%20Project%20Structure.md) - SDK organization
+- [🚀 Future Roadmap](Documentation/ROADMAP.md) - Vision for Web3 Gaming Infrastructure
 
 ## 🎮 Why BaseKit?
 
