@@ -9,7 +9,7 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 
 ##  Development Timeline (Extended Sprint)
 
-### **Day 1 — Project Setup & Basic UI**
+### **Task 1 — Project Setup & Basic UI**
 
 - [ ] Set up Godot project structure (GDScript)
 - [ ] Create basic UI scenes and layouts
@@ -24,7 +24,7 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 
 ---
 
-### **Day 2 — RPC Connection & Wallet Logic**
+### **Task 2 — RPC Connection & Wallet Logic**
 
 - [ ] Implement Base RPC calls using `HTTPRequest`
 - [ ] Handle JSON responses and error cases
@@ -39,7 +39,7 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 
 ---
 
-### **Day 3 — Base Name Resolution**
+### **Task 3 — Base Name Resolution**
 
 - [ ] Research ENS resolution on Base network
 - [ ] Implement Base Name lookup functionality
@@ -54,18 +54,18 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 
 ---
 
-### **Day 4 — Game Development Day! 🎮**
+### **Task 4 — Game Development Day! **
 
 **Joint Task - Build Chrome Dino Game Together**
 
-**Morning: Game Design (2-3 hours)**
+**Game Design**
 
 - [ ] Study Chrome Dino game mechanics (jump, obstacles, scoring)
 - [ ] Plan BaseKit integration (show Base Name as player name)
 - [ ] Design simple sprites (dino, cacti, ground)
 - [ ] Set up game scene structure
 
-**Afternoon: Game Implementation (4-5 hours)**
+**Game Implementation**
 
 - [ ] Create dino character with jump physics
 - [ ] Add scrolling ground and obstacle spawning
@@ -84,18 +84,18 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 
 ---
 
-### **Day 5 — Polish, Testing & Documentation**
+### **Task 5 — Polish, Testing & Documentation**
 
 **Joint Task**
 
-**Morning: Integration & Polish**
+**Integration & Polish**
 
 - [ ] Combine all BaseKit components
 - [ ] Add session persistence and error handling
 - [ ] Polish game UI and BaseKit integration
 - [ ] Test full flow: login → play → persist
 
-**Afternoon: Documentation & Demo**
+**Documentation & Demo**
 
 - [ ] Write clear README with setup instructions
 - [ ] Create developer documentation
@@ -107,9 +107,9 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 
 ---
 
-##  Game Development Learning Path
+## Development Learning Path
 
-### **Godot Basics (Day 4 Morning)**
+### **Godot Basics **
 
 - Scenes and nodes structure
 - GDScript fundamentals
@@ -209,7 +209,7 @@ base-kit-godot-sdk/
 │   ├── simple_login.gd
 │   └── integration_guide.md
 │
-└── docs/
+└── documentations/
     ├── API_REFERENCE.md
     └── GAME_INTEGRATION.md
 ```
@@ -242,25 +242,25 @@ git push origin feature/day-X-task
 
 ##  Success Criteria by Day
 
-### **Day 1 Success:**
+### **Task 1 Success:**
 
 - [ ] Godot project opens without errors
 - [ ] UI buttons are clickable and styled
 - [ ] Basic project structure is in place
 
-### **Day 2 Success:**
+### **Task 2 Success:**
 
 - [ ] Can make HTTP requests to Base RPC
 - [ ] Wallet address displays in UI (real or mock)
 - [ ] Error handling works for network failures
 
-### **Day 3 Success:**
+### ** Task 3 Success:**
 
 - [ ] Base Name resolution works for test addresses
 - [ ] Avatar loading with fallback image
 - [ ] Caching system stores results
 
-### **Day 4 Success:**
+### **Task 4 Success:**
 
 - [ ] Dino jumps and collides with obstacles
 - [ ] Scrolling ground and obstacle spawning works
@@ -268,7 +268,7 @@ git push origin feature/day-X-task
 - [ ] BaseKit shows Base Name in game UI
 - [ ] Game over screen displays final score + Base Name
 
-### **Day 5 Success:**
+### **Task 5 Success:**
 
 - [ ] Complete SDK package ready for distribution
 - [ ] Demo video showcasing game + BaseKit
@@ -298,7 +298,7 @@ git push origin feature/day-X-task
 
 ##  Risk Mitigation
 
-| Day | Risk                       | Solution                          |
+| Task | Risk                       | Solution                          |
 | --- | -------------------------- | --------------------------------- |
 | 1   | Godot setup issues         | Use online Godot editor as backup |
 | 2   | RPC connection fails       | Switch to mock data immediately   |

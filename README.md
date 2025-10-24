@@ -72,11 +72,11 @@ BaseKit/
 
 ##  Development Timeline
 
-- **Day 1:** Project setup & basic UI
-- **Day 2:** RPC connection & wallet logic
-- **Day 3:** Base Name resolution & avatars
-- **Day 4:** Coin Adventure game development
-- **Day 5:** Polish, testing & documentation
+- **Task 1:** Project setup & basic UI
+- **Task 2:** RPC connection & wallet logic
+- **Task 3:** Base Name resolution & avatars
+- **Task 4:** Coin Adventure game development
+- **Task 5:** Polish, testing & documentation
 
 ##  Base Network Integration
 
@@ -96,7 +96,7 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 
 - [ Requirements](Documentation/Basekit%20-%20Requirements.md) - Complete feature specifications
 - [ Design](Documentation/Basekit%20-%20Design.md) - Architecture and design decisions
-- [ 5-Day Development Plan](Documentation/BaseKit%20—%205-Day%20Development%20Plan.md) - Detailed sprint timeline
+- [ Task Development Plan](Documentation/BaseKit%20—%205-Task%20Development%20Plan.md) - Detailed development timeline
 - [ Godot Project Structure](Documentation/BaseKit%20—%20Godot%20Project%20Structure.md) - SDK organization
 - [ Future Roadmap](Documentation/ROADMAP.md) - Vision for Web3 Gaming Infrastructure
 
