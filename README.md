@@ -30,14 +30,15 @@ Instead of showing cryptic wallet addresses like `0x1234...5678`, your players s
 - **GameMaker Studio** - GML SDK (Q4 2024)
 - **Construct 3** - JavaScript SDK (Q4 2024)
 
-##  Demo: Chrome Dino with Web3 Identity
+##  Demo: Coin Adventure with Web3 Identity
 
-Our demo game is a Coin Adventure where:
+Our demo game is a platformer-style Coin Adventure where:
 
 - Players sign in with their Base wallet
-- High scores show Base Names instead of "Anonymous"
-- Leaderboards display actual Web3 identities
-- Avatars appear next to player names
+- Collect coins while jumping across platforms
+- Game displays Base Names instead of wallet addresses
+- Score tracking with Web3 identity integration
+- Copy/disconnect functionality built-in
 
 ##  Quick Start (Godot)
 
@@ -60,12 +61,13 @@ func _on_wallet_connected(address: String):
 ```
 BaseKit/
 ├── base-kit-godot-sdk/          # Main Godot project
-│   ├── basekit/                 # SDK core files
-│   ├── ui/                      # Login UI components
-│   ├── tests/                   # Test scenes and scripts
-│   ├── examples/                # Integration examples
-│   └── simple_demo.tscn         # Main demo
-├── docs/                        # Documentation
+│   ├── addons/basekit/          # SDK core files
+│   ├── examples/                # Coin Adventure platformer game
+│   │   ├── scenes/              # Game scenes (player, coins, platforms)
+│   │   ├── scripts/             # Game logic and BaseKit integration
+│   │   └── assets/              # Sprites, sounds, fonts
+│   └── tests/                   # Test scenes and scripts
+├── Documentation/               # Comprehensive documentation
 ├── ROADMAP.md                   # Future vision
 └── README.md                    # This file
 ```
@@ -113,8 +115,9 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 ### For Godot Engine (Available Now):
 1. Clone this repository
 2. Open `base-kit-godot-sdk/` in Godot 4.5+
-3. Run the Coin Adventure demo
-4. Integrate BaseKit into your own game
+3. Run the project to see the main menu
+4. Connect wallet and play Coin Adventure
+5. Integrate BaseKit into your own game
 
 ### For Other Engines:
 - **Unity Developers:** [Join waitlist](mailto:unity@basekit.dev) for early access
