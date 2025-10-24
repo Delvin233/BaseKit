@@ -2,7 +2,7 @@
 
 ### 🎯 Project Overview
 
-**BaseKit** is a lightweight SDK that allows developers to add **wallet login and Base Name identity** directly into their **Godot games**.  
+**BaseKit** is a multi-engine Web3 gaming SDK that allows developers to add **wallet login and Base Name identity** directly into their games. **Currently optimized for Godot Engine** with plans to expand to Unity, Unreal Engine, and other popular game engines.  
 It enables "Sign in with Base" functionality using **Base Names**, making Web3 access seamless for both players and developers.
 
 ---
@@ -54,7 +54,7 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 
 ---
 
-### **Day 4 — Game Development Day! 🦕**
+### **Day 4 — Game Development Day! 🎮**
 
 **Joint Task - Build Chrome Dino Game Together**
 

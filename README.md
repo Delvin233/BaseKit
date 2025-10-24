@@ -1,12 +1,14 @@
-# BaseKit 🦕
+# BaseKit 🎮
 
-**Godot SDK for wallet login powered by Base Names**
+**Multi-Engine Web3 Gaming SDK powered by Base Names**
 
-A lightweight Godot addon that enables seamless Web3 identity and authentication for games using Base Names (ENS on Base). Transform wallet addresses into human-readable identities for your players!
+A comprehensive Web3 identity SDK that enables seamless wallet authentication for games using Base Names (ENS on Base). Currently optimized for Godot Engine with plans to expand to Unity, Unreal Engine, and other popular game engines. Transform wallet addresses into human-readable identities for your players!
 
 ## 🎮 What is BaseKit?
 
-BaseKit allows Godot developers to integrate "Sign in with Base" functionality directly into their games. Instead of showing cryptic wallet addresses like `0x1234...5678`, your players see their actual Base Names like `alice.base.eth`.
+BaseKit is a comprehensive Web3 gaming SDK that allows game developers to integrate "Sign in with Base" functionality directly into their games. **Currently available for Godot Engine** with upcoming support for Unity, Unreal Engine, and other major game engines.
+
+Instead of showing cryptic wallet addresses like `0x1234...5678`, your players see their actual Base Names like `alice.base.eth`.
 
 ## 🚀 Features
 
@@ -14,19 +16,30 @@ BaseKit allows Godot developers to integrate "Sign in with Base" functionality d
 - **🏷️ Base Name Resolution** - Convert addresses to readable Base Names
 - **🖼️ Avatar Support** - Display user avatars from ENS records
 - **💾 Session Management** - Persistent login across game sessions
-- **🎯 Easy Integration** - Simple GDScript API for developers
-- **🦕 Demo Game** - Chrome Dino clone showcasing BaseKit integration
+- **🎯 Easy Integration** - Simple API for developers (GDScript now, more engines coming)
+- **🪙 Demo Game** - Coin Adventure showcasing BaseKit integration
+
+## 🎲 Engine Support
+
+### ✅ **Currently Supported:**
+- **Godot Engine 4.x** - Full SDK with GDScript API
+
+### 🕰️ **Coming Soon:**
+- **Unity** - C# SDK (Q2 2024)
+- **Unreal Engine** - C++/Blueprint SDK (Q3 2024)
+- **GameMaker Studio** - GML SDK (Q4 2024)
+- **Construct 3** - JavaScript SDK (Q4 2024)
 
 ## 🎯 Demo: Chrome Dino with Web3 Identity
 
-Our demo game is a Chrome Dino clone where:
+Our demo game is a Coin Adventure where:
 
 - Players sign in with their Base wallet
 - High scores show Base Names instead of "Anonymous"
 - Leaderboards display actual Web3 identities
 - Avatars appear next to player names
 
-## 🛠️ Quick Start
+## 🛠️ Quick Start (Godot)
 
 ```gdscript
 # Connect wallet and get Base Name
@@ -39,6 +52,8 @@ func _on_wallet_connected(address: String):
     var avatar = BaseKit.get_avatar()
     print("Welcome, " + base_name + "!")
 ```
+
+> **Note:** Unity and Unreal Engine SDKs coming soon with similar ease of integration!
 
 ## 📁 Project Structure
 
@@ -60,7 +75,7 @@ BaseKit/
 - **Day 1:** Project setup & basic UI
 - **Day 2:** RPC connection & wallet logic
 - **Day 3:** Base Name resolution & avatars
-- **Day 4:** Chrome Dino game development
+- **Day 4:** Coin Adventure game development
 - **Day 5:** Polish, testing & documentation
 
 ## 🌐 Base Network Integration
@@ -95,10 +110,16 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 
 ## 🚀 Getting Started
 
+### For Godot Engine (Available Now):
 1. Clone this repository
 2. Open `base-kit-godot-sdk/` in Godot 4.5+
-3. Run the Chrome Dino demo
+3. Run the Coin Adventure demo
 4. Integrate BaseKit into your own game
+
+### For Other Engines:
+- **Unity Developers:** [Join waitlist](mailto:unity@basekit.dev) for early access
+- **Unreal Developers:** [Join waitlist](mailto:unreal@basekit.dev) for early access
+- **Other Engines:** [Contact us](mailto:hello@basekit.dev) for custom integration
 
 ## 📄 License
 
@@ -106,4 +127,4 @@ MIT License - Build amazing Web3 games with BaseKit!
 
 ---
 
-> **BaseKit** — Bringing human-readable Web3 identity to Godot games, one Base Name at a time! 🦕⚡
+> **BaseKit** — Bringing human-readable Web3 identity to games, one Base Name at a time!🎮⚡

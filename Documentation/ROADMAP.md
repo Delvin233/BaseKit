@@ -9,14 +9,25 @@
 - ✅ **Session Management** - Persistent login across games
 - ✅ **Developer SDK** - Drop-in BaseKit button
 
-## 🚀 Phase 2: Blockchain Interactions (v2.0)
+## 🚀 Phase 2: Multi-Engine Support & Blockchain Interactions (v2.0)
+
+### 🎮 **Multi-Engine Expansion**
+- **Unity SDK** - C# implementation with Unity-specific features
+- **Unreal Engine SDK** - C++/Blueprint integration
+- **GameMaker Studio** - GML scripting support
+- **Construct 3** - JavaScript plugin architecture
 
 ### 🔗 **Transaction Infrastructure**
 ```gdscript
-# Send transactions directly from games
+# Godot (GDScript)
 BaseKit.send_transaction(to_address, value, data)
 BaseKit.call_contract(contract_address, method, params)
-BaseKit.sign_message(message)
+```
+
+```csharp
+// Unity (C#)
+BaseKit.SendTransaction(toAddress, value, data);
+BaseKit.CallContract(contractAddress, method, parameters);
 ```
 
 ### 🎮 **Gaming-Specific Features**
@@ -101,10 +112,12 @@ BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 **Solution:** BaseKit makes any game Web3-native with one line of code
 
 **Target Market:**
-- **Indie Game Developers** - Easy Web3 integration
-- **Mobile Games** - Add blockchain features without complexity  
-- **Browser Games** - Instant Web3 transformation
-- **Game Studios** - Rapid Web3 prototyping
+- **Godot Developers** - Current primary market with full SDK
+- **Unity Developers** - Major expansion target (Q2 2024)
+- **Unreal Engine Studios** - AAA and indie game integration (Q3 2024)
+- **Mobile Game Developers** - Cross-platform Web3 features
+- **Browser Game Creators** - Instant Web3 transformation
+- **Game Studios** - Multi-engine Web3 prototyping
 
 ## 🚀 Why BaseKit Will Win
 
@@ -133,6 +146,6 @@ BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 
 ---
 
-> **BaseKit Vision:** *Making every game a Web3 game, one button at a time* 🦕⚡
+> **BaseKit Vision:** *Making every game a Web3 game, one button at a time* 🎮⚡
 
 **Built on Base. Powered by Vision. Ready for the Future.** 🚀

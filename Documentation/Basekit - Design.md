@@ -2,9 +2,9 @@
 
 ## Overview
 
-BaseKit is a modular Web3 identity SDK for Godot games that provides seamless wallet authentication and Base Name resolution. The system follows a layered architecture with a central manager coordinating specialized components through Godot's signal system. The design prioritizes developer experience, platform compatibility, and graceful degradation while maintaining security best practices.
+BaseKit is a modular Web3 identity SDK that provides seamless wallet authentication and Base Name resolution across multiple game engines. **Currently optimized for Godot Engine** with planned expansion to Unity, Unreal Engine, and other popular game engines. The system follows a layered architecture with a central manager coordinating specialized components through engine-specific signal systems. The design prioritizes developer experience, platform compatibility, and graceful degradation while maintaining security best practices.
 
-The SDK transforms complex blockchain interactions into simple GDScript APIs, enabling game developers to integrate Web3 identity features without requiring deep blockchain expertise. The architecture supports multiple authentication methods, caching strategies, and fallback mechanisms to ensure reliable operation across different network conditions.
+The SDK transforms complex blockchain interactions into simple, engine-specific APIs (currently GDScript for Godot, with C# for Unity and C++/Blueprints for Unreal Engine planned), enabling game developers to integrate Web3 identity features without requiring deep blockchain expertise. The architecture supports multiple authentication methods, caching strategies, and fallback mechanisms to ensure reliable operation across different network conditions.
 
 ## Architecture
 
