@@ -146,6 +146,6 @@ BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 
 ---
 
-> **BaseKit Vision:** *Making every game a Web3 game, one button at a time* 🎮⚡
+> **BaseKit Vision:** *Making every game a Web3 game, one button at a time* 
 
 **Built on Base. Powered by Vision. Ready for the Future.** 
