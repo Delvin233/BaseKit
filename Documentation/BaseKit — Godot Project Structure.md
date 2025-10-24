@@ -1,13 +1,13 @@
 # BaseKit - Godot Project Structure
 
-## 📋 Project Overview
+##  Project Overview
 **Goal:** Create a Godot SDK that enables seamless Web3 identity and login for games on Base using Base Names (ENS on Base).
 
 **Core Value Proposition:** Allow Godot game developers to integrate wallet-based authentication with human-readable Base Names instead of complex addresses.
 
 ---
 
-## 🏗️ Godot Project Structure
+##  Godot Project Structure
 
 ```
 base-kit-godot-sdk/
@@ -84,7 +84,7 @@ base-kit-godot-sdk/
 
 ---
 
-## 🔧 Key Godot Files & Components
+##  Key Godot Files & Components
 
 ### **Core SDK Files**
 
@@ -201,7 +201,7 @@ func save_high_score():
 
 ---
 
-## 🎮 Game Integration Pattern
+##  Game Integration Pattern
 
 ### **Basic Integration Steps:**
 
@@ -234,7 +234,7 @@ func save_high_score():
 
 ---
 
-## 📦 Godot Addon Structure
+##  Godot Addon Structure
 
 ### **basekit/plugin.cfg**
 ```ini
@@ -261,7 +261,7 @@ script="plugin.gd"
 
 ---
 
-## 🔄 Development Workflow
+##  Development Workflow
 
 ### **Daily File Organization:**
 
@@ -282,7 +282,7 @@ main branch
 
 ---
 
-## 🎯 File Priorities by Day
+##  File Priorities by Day
 
 ### **Day 1 - Essential Files:**
 - `project.godot` (project setup)

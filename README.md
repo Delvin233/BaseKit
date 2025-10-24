@@ -1,36 +1,36 @@
-# BaseKit 🎮
+# BaseKit 
 
 **Multi-Engine Web3 Gaming SDK powered by Base Names**
 
 A comprehensive Web3 identity SDK that enables seamless wallet authentication for games using Base Names (ENS on Base). Currently optimized for Godot Engine with plans to expand to Unity, Unreal Engine, and other popular game engines. Transform wallet addresses into human-readable identities for your players!
 
-## 🎮 What is BaseKit?
+## What is BaseKit?
 
 BaseKit is a comprehensive Web3 gaming SDK that allows game developers to integrate "Sign in with Base" functionality directly into their games. **Currently available for Godot Engine** with upcoming support for Unity, Unreal Engine, and other major game engines.
 
 Instead of showing cryptic wallet addresses like `0x1234...5678`, your players see their actual Base Names like `alice.base.eth`.
 
-## 🚀 Features
+##  Features
 
-- **🔗 Wallet Connection** - Connect to Base network via RPC
-- **🏷️ Base Name Resolution** - Convert addresses to readable Base Names
-- **🖼️ Avatar Support** - Display user avatars from ENS records
-- **💾 Session Management** - Persistent login across game sessions
-- **🎯 Easy Integration** - Simple API for developers (GDScript now, more engines coming)
-- **🪙 Demo Game** - Coin Adventure showcasing BaseKit integration
+- ** Wallet Connection** - Connect to Base network via RPC
+- ** Base Name Resolution** - Convert addresses to readable Base Names
+- ** Avatar Support** - Display user avatars from ENS records
+- ** Session Management** - Persistent login across game sessions
+- ** Easy Integration** - Simple API for developers (GDScript now, more engines coming)
+- ** Demo Game** - Coin Adventure showcasing BaseKit integration
 
-## 🎲 Engine Support
+##  Engine Support
 
-### ✅ **Currently Supported:**
+###  **Currently Supported:**
 - **Godot Engine 4.x** - Full SDK with GDScript API
 
-### 🕰️ **Coming Soon:**
+###  **Coming Soon:**
 - **Unity** - C# SDK (Q2 2024)
 - **Unreal Engine** - C++/Blueprint SDK (Q3 2024)
 - **GameMaker Studio** - GML SDK (Q4 2024)
 - **Construct 3** - JavaScript SDK (Q4 2024)
 
-## 🎯 Demo: Chrome Dino with Web3 Identity
+##  Demo: Chrome Dino with Web3 Identity
 
 Our demo game is a Coin Adventure where:
 
@@ -39,7 +39,7 @@ Our demo game is a Coin Adventure where:
 - Leaderboards display actual Web3 identities
 - Avatars appear next to player names
 
-## 🛠️ Quick Start (Godot)
+##  Quick Start (Godot)
 
 ```gdscript
 # Connect wallet and get Base Name
@@ -55,7 +55,7 @@ func _on_wallet_connected(address: String):
 
 > **Note:** Unity and Unreal Engine SDKs coming soon with similar ease of integration!
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 BaseKit/
@@ -70,7 +70,7 @@ BaseKit/
 └── README.md                    # This file
 ```
 
-## 🎯 Development Timeline
+##  Development Timeline
 
 - **Day 1:** Project setup & basic UI
 - **Day 2:** RPC connection & wallet logic
@@ -78,29 +78,29 @@ BaseKit/
 - **Day 4:** Coin Adventure game development
 - **Day 5:** Polish, testing & documentation
 
-## 🌐 Base Network Integration
+##  Base Network Integration
 
 - **Network:** Base Mainnet (Chain ID: 8453)
 - **RPC Endpoint:** `https://mainnet.base.org`
 - **ENS Support:** Base Names resolution
 - **IPFS:** Avatar loading from decentralized storage
 
-## 👥 Team
+##  Team
 
 - **Delvin Yamoah** - SDK structure, Base Name resolution, session logic
 - **Gideon Adjei** - Wallet connection, RPC testing, UI integration
 
-## 📚 Documentation
+##  Documentation
 
 For comprehensive documentation, see the [Documentation/](Documentation/) folder:
 
-- [📋 Requirements](Documentation/Basekit%20-%20Requirements.md) - Complete feature specifications
-- [🎨 Design](Documentation/Basekit%20-%20Design.md) - Architecture and design decisions
-- [📅 5-Day Development Plan](Documentation/BaseKit%20—%205-Day%20Development%20Plan.md) - Detailed sprint timeline
-- [🏗️ Godot Project Structure](Documentation/BaseKit%20—%20Godot%20Project%20Structure.md) - SDK organization
-- [🚀 Future Roadmap](Documentation/ROADMAP.md) - Vision for Web3 Gaming Infrastructure
+- [ Requirements](Documentation/Basekit%20-%20Requirements.md) - Complete feature specifications
+- [ Design](Documentation/Basekit%20-%20Design.md) - Architecture and design decisions
+- [ 5-Day Development Plan](Documentation/BaseKit%20—%205-Day%20Development%20Plan.md) - Detailed sprint timeline
+- [ Godot Project Structure](Documentation/BaseKit%20—%20Godot%20Project%20Structure.md) - SDK organization
+- [ Future Roadmap](Documentation/ROADMAP.md) - Vision for Web3 Gaming Infrastructure
 
-## 🎮 Why BaseKit?
+##  Why BaseKit?
 
 **Problem:** Web3 games show ugly wallet addresses instead of human-readable identities.
 
@@ -108,7 +108,7 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 
 **Result:** Better UX, recognizable player identities, and seamless Web3 integration.
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### For Godot Engine (Available Now):
 1. Clone this repository
@@ -121,10 +121,10 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 - **Unreal Developers:** [Join waitlist](mailto:unreal@basekit.dev) for early access
 - **Other Engines:** [Contact us](mailto:hello@basekit.dev) for custom integration
 
-## 📄 License
+##  License
 
 MIT License - Build amazing Web3 games with BaseKit!
 
 ---
 
-> **BaseKit** — Bringing human-readable Web3 identity to games, one Base Name at a time!🎮⚡
+> **BaseKit** — Bringing human-readable Web3 identity to games, one Base Name at a time!

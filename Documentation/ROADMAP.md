@@ -1,23 +1,23 @@
-# BaseKit Roadmap 🚀
+# BaseKit Roadmap 
 
 **From Web3 Identity to Full Blockchain Gaming Infrastructure**
 
-## 🎯 Current Status (v1.0)
-- ✅ **Web3 Identity** - Transform wallet addresses to Base Names
-- ✅ **Wallet Connection** - Seamless MetaMask integration
-- ✅ **Avatar System** - Visual identity for players
-- ✅ **Session Management** - Persistent login across games
-- ✅ **Developer SDK** - Drop-in BaseKit button
+##  Current Status (v1.0)
+-  **Web3 Identity** - Transform wallet addresses to Base Names
+-  **Wallet Connection** - Seamless MetaMask integration
+-  **Avatar System** - Visual identity for players
+-  **Session Management** - Persistent login across games
+-  **Developer SDK** - Drop-in BaseKit button
 
-## 🚀 Phase 2: Multi-Engine Support & Blockchain Interactions (v2.0)
+##  Phase 2: Multi-Engine Support & Blockchain Interactions (v2.0)
 
-### 🎮 **Multi-Engine Expansion**
+###  **Multi-Engine Expansion**
 - **Unity SDK** - C# implementation with Unity-specific features
 - **Unreal Engine SDK** - C++/Blueprint integration
 - **GameMaker Studio** - GML scripting support
 - **Construct 3** - JavaScript plugin architecture
 
-### 🔗 **Transaction Infrastructure**
+###  **Transaction Infrastructure**
 ```gdscript
 # Godot (GDScript)
 BaseKit.send_transaction(to_address, value, data)
@@ -39,53 +39,53 @@ BaseKit.reward_tokens(player, amount)          # Token rewards
 BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 ```
 
-### 📊 **Smart Contract Templates**
+###  **Smart Contract Templates**
 - **Leaderboard Contract** - Global high scores
 - **Achievement System** - NFT badges and rewards
 - **Token Rewards** - Play-to-earn mechanics
 - **Tournament Manager** - Competitive gaming infrastructure
 
-## 🎯 Phase 3: Advanced Gaming Features (v3.0)
+##  Phase 3: Advanced Gaming Features (v3.0)
 
-### 🏆 **Competitive Gaming**
+###  **Competitive Gaming**
 - **Tournament Creation** - Developers can create on-chain tournaments
 - **Prize Pools** - Automatic prize distribution
 - **Ranking Systems** - ELO-style player ratings
 - **Anti-Cheat** - Blockchain-verified game states
 
-### 🎨 **NFT Integration**
+###  **NFT Integration**
 - **In-Game Assets** - Items, skins, characters as NFTs
 - **Cross-Game Items** - Use NFTs across multiple games
 - **Marketplace** - Built-in trading functionality
 - **Crafting System** - Combine NFTs to create new items
 
-### 💰 **Economic Features**
+###  **Economic Features**
 - **Play-to-Earn** - Earn tokens by playing
 - **Staking Rewards** - Stake tokens for bonuses
 - **Governance** - Players vote on game updates
 - **Revenue Sharing** - Players earn from game success
 
-## 🌐 Phase 4: Multi-Chain & Ecosystem (v4.0)
+##  Phase 4: Multi-Chain & Ecosystem (v4.0)
 
-### 🔗 **Cross-Chain Support**
+###  **Cross-Chain Support**
 - **Ethereum Mainnet** - Access to larger DeFi ecosystem
 - **Polygon** - Low-cost transactions
 - **Arbitrum** - Layer 2 scaling
 - **Other L2s** - Optimism, zkSync, etc.
 
-### 🏗️ **Developer Ecosystem**
+###  **Developer Ecosystem**
 - **BaseKit Studio** - Visual game development tools
 - **Template Games** - Pre-built game templates with Web3 features
 - **Plugin Marketplace** - Community-created BaseKit extensions
 - **Analytics Dashboard** - Player behavior and economics insights
 
-### 🎮 **Gaming Infrastructure**
+###  **Gaming Infrastructure**
 - **Matchmaking** - Find players with similar skill/NFTs
 - **Guild System** - Player organizations with shared treasuries
 - **Streaming Integration** - Twitch/YouTube with crypto rewards
 - **Mobile SDK** - BaseKit for mobile games
 
-## 🎯 Demo Roadmap: Chrome Dino Evolution
+##  Demo Roadmap: Chrome Dino Evolution
 
 ### **v1.0 (Current)**
 - Basic dino game with Web3 identity
@@ -106,7 +106,7 @@ BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 - Breeding system (combine dino traits)
 - Dino racing tournaments with betting
 
-## 🎯 Market Vision
+##  Market Vision
 
 **Problem:** Web3 gaming is complex and fragmented
 **Solution:** BaseKit makes any game Web3-native with one line of code
@@ -119,7 +119,7 @@ BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 - **Browser Game Creators** - Instant Web3 transformation
 - **Game Studios** - Multi-engine Web3 prototyping
 
-## 🚀 Why BaseKit Will Win
+##  Why BaseKit Will Win
 
 1. **Developer Experience** - Easiest Web3 integration in gaming
 2. **Base Network** - Fast, cheap, Coinbase-backed infrastructure  
@@ -127,7 +127,7 @@ BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 4. **Proven Traction** - Working demo at hackathon
 5. **Clear Roadmap** - Path from MVP to gaming infrastructure leader
 
-## 📈 Success Metrics
+##  Success Metrics
 
 **Phase 2 Goals:**
 - 100+ games using BaseKit transactions
@@ -148,4 +148,4 @@ BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 
 > **BaseKit Vision:** *Making every game a Web3 game, one button at a time* 🎮⚡
 
-**Built on Base. Powered by Vision. Ready for the Future.** 🚀
+**Built on Base. Powered by Vision. Ready for the Future.** 

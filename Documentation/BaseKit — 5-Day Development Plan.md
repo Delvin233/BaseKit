@@ -1,13 +1,13 @@
-# 🧩 BaseKit — 5-Day Development Plan
+#  BaseKit — 5-Day Development Plan
 
-### 🎯 Project Overview
+###  Project Overview
 
 **BaseKit** is a multi-engine Web3 gaming SDK that allows developers to add **wallet login and Base Name identity** directly into their games. **Currently optimized for Godot Engine** with plans to expand to Unity, Unreal Engine, and other popular game engines.  
 It enables "Sign in with Base" functionality using **Base Names**, making Web3 access seamless for both players and developers.
 
 ---
 
-## 🗓️ Development Timeline (Extended Sprint)
+##  Development Timeline (Extended Sprint)
 
 ### **Day 1 — Project Setup & Basic UI**
 
@@ -107,7 +107,7 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 
 ---
 
-## 🎮 Game Development Learning Path
+##  Game Development Learning Path
 
 ### **Godot Basics (Day 4 Morning)**
 
@@ -157,7 +157,7 @@ func update_player_display():
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 | Component           | Tool                                   |
 | ------------------- | -------------------------------------- |
@@ -172,7 +172,7 @@ func update_player_display():
 
 ---
 
-## 🧱 Repository Structure
+##  Repository Structure
 
 ```
 base-kit-godot-sdk/
@@ -216,7 +216,7 @@ base-kit-godot-sdk/
 
 ---
 
-## 🌐 Collaboration Workflow
+##  Collaboration Workflow
 
 **Daily Structure:**
 
@@ -240,7 +240,7 @@ git push origin feature/day-X-task
 
 ---
 
-## 🏁 Success Criteria by Day
+##  Success Criteria by Day
 
 ### **Day 1 Success:**
 
@@ -276,7 +276,7 @@ git push origin feature/day-X-task
 
 ---
 
-## 🎯 Learning Objectives
+##  Learning Objectives
 
 **Technical Skills:**
 
@@ -296,7 +296,7 @@ git push origin feature/day-X-task
 
 ---
 
-## 🚨 Risk Mitigation
+##  Risk Mitigation
 
 | Day | Risk                       | Solution                          |
 | --- | -------------------------- | --------------------------------- |
@@ -308,7 +308,7 @@ git push origin feature/day-X-task
 
 ---
 
-## 🎮 Game Development Resources
+##  Game Development Resources
 
 **Free Assets:**
 
@@ -324,7 +324,7 @@ git push origin feature/day-X-task
 
 ---
 
-## 🏆 Final Deliverables
+##  Final Deliverables
 
 **Code:**
 
