@@ -56,22 +56,22 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 
 ### **Task 4 — Game Development Day! **
 
-**Joint Task - Build Chrome Dino Game Together**
+**Joint Task - Build Coin Adventure Game Together**
 
 **Game Design**
 
-- [ ] Study Chrome Dino game mechanics (jump, obstacles, scoring)
+- [ ] Study platformer game mechanics (jump, collect coins, platforms)
 - [ ] Plan BaseKit integration (show Base Name as player name)
-- [ ] Design simple sprites (dino, cacti, ground)
-- [ ] Set up game scene structure
+- [ ] Design sprites (knight character, coins, platforms, enemies)
+- [ ] Set up game scene structure in examples/ folder
 
 **Game Implementation**
 
-- [ ] Create dino character with jump physics
-- [ ] Add scrolling ground and obstacle spawning
-- [ ] Implement collision detection and game over
+- [ ] Create player character with jump and movement physics
+- [ ] Add platform collision and coin collection mechanics
+- [ ] Implement enemy AI and collision detection
 - [ ] Add scoring system tied to Base Name
-- [ ] Integrate BaseKit login for high score tracking
+- [ ] Integrate BaseKit login for score display
 
 **BaseKit Integration:**
 
@@ -80,7 +80,7 @@ It enables "Sign in with Base" functionality using **Base Names**, making Web3 a
 - Display avatar next to player name
 - Leaderboard with Base Names instead of "Anonymous"
 
-**Goal:** Playable Chrome Dino clone with Web3 identity integration.
+**Goal:** Playable Coin Adventure game with Web3 identity integration.
 
 ---
 
@@ -126,15 +126,15 @@ func _ready():
         avatar_texture.texture = BaseKit.get_avatar()
 ```
 
-### **Chrome Dino Game Mechanics**
+### **Coin Adventure Game Mechanics**
 
 **Core Gameplay:**
 
-- Dino runs automatically (constant speed)
-- Player presses SPACE to jump over cacti
-- Score increases over time (distance traveled)
-- Game gets faster as score increases
-- Game over when dino hits obstacle
+- Player controls a knight character on platforms
+- Player uses arrow keys to move and space to jump
+- Score increases by collecting coins scattered on platforms
+- Avoid slime enemies that patrol platforms
+- Platformer-style physics with gravity and jumping
 
 **BaseKit Integration:**
 
@@ -153,7 +153,7 @@ func update_player_display():
 - **Main Menu:** "Sign in with Base" button
 - **Game Over:** Show current score + Base Name
 - **High Scores:** Leaderboard with Base Names
-- **Simple Graphics:** Pixel art style like original
+- **Simple Graphics:** Colorful pixel art style
 
 ---
 
@@ -189,21 +189,22 @@ base-kit-godot-sdk/
 │   ├── profile_display.tscn
 │   └── login_panel.gd
 │
-├── dino_game/                   # Chrome Dino Clone!
+├── coin_adventure/              # Coin Adventure Game!
 │   ├── scenes/
 │   │   ├── main_menu.tscn       # Login + start game
 │   │   ├── game_scene.tscn      # Main gameplay
 │   │   ├── game_over.tscn       # Score + restart
 │   │   └── leaderboard.tscn     # High scores
 │   ├── scripts/
-│   │   ├── dino_player.gd       # Jump physics
-│   │   ├── obstacle_spawner.gd  # Cactus generation
-│   │   ├── ground_scroller.gd   # Moving background
+│   │   ├── player.gd            # Movement physics
+│   │   ├── coin_spawner.gd      # Coin generation
+│   │   ├── obstacle_spawner.gd  # Obstacle generation
 │   │   └── score_manager.gd     # Points + BaseKit
 │   └── assets/
-│       ├── dino_sprite.png      # Simple pixel dino
-│       ├── cactus_sprite.png    # Obstacle graphics
-│       └── jump_sound.wav       # Audio feedback
+│       ├── player_sprite.png    # Simple pixel character
+│       ├── coin_sprite.png      # Coin graphics
+│       ├── obstacle_sprite.png  # Obstacle graphics
+│       └── collect_sound.wav    # Audio feedback
 │
 ├── examples/                    # SDK Usage Examples
 │   ├── simple_login.gd
@@ -262,9 +263,9 @@ git push origin feature/day-X-task
 
 ### **Task 4 Success:**
 
-- [ ] Dino jumps and collides with obstacles
-- [ ] Scrolling ground and obstacle spawning works
-- [ ] Score system tracks distance/points
+- [ ] Player moves and collects coins
+- [ ] Coin and obstacle spawning works
+- [ ] Score system tracks collected coins
 - [ ] BaseKit shows Base Name in game UI
 - [ ] Game over screen displays final score + Base Name
 

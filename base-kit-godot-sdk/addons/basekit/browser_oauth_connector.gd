@@ -121,7 +121,7 @@ Content-Type: text/html
 <html>
 <head><title>BaseKit - Wallet Connected</title></head>
 <body style="font-family: Arial; text-align: center; padding: 50px; background: #1a1a1a; color: white;">
-	<h1>🎉 Wallet Connected!</h1>
+	<h1>Wallet Connected!</h1>
 	<p>Address: """ + address + """</p>
 	<p>You can close this tab and return to the game.</p>
 </body>
@@ -183,7 +183,7 @@ func _get_auth_html() -> String:
 </head>
 <body>
 	<div class="container">
-		<h1>🦕 BaseKit Wallet Connection</h1>
+		<h1>BaseKit Wallet Connection</h1>
 		<p>Connect your MetaMask wallet to play with your Base Name identity!</p>
 		
 		<div id="status" class="status loading">
@@ -275,16 +275,16 @@ func _get_auth_html() -> String:
 					try {
 						const accounts = await window.ethereum.request({ method: 'eth_accounts' });
 						if (accounts.length > 0) {
-							document.getElementById('statusText').textContent = '✅ MetaMask connected. Click to continue.';
+							document.getElementById('statusText').textContent = 'MetaMask connected. Click to continue.';
 						} else {
-							document.getElementById('statusText').textContent = '🦊 MetaMask detected. Click to connect.';
+							document.getElementById('statusText').textContent = 'MetaMask detected. Click to connect.';
 						}
 					} catch (error) {
 						console.log('Could not check existing connection');
-						document.getElementById('statusText').textContent = '🦊 MetaMask ready. Click to connect.';
+						document.getElementById('statusText').textContent = 'MetaMask ready. Click to connect.';
 					}
 				} else {
-					document.getElementById('statusText').textContent = '❌ MetaMask not found. Please install MetaMask.';
+					document.getElementById('statusText').textContent = 'MetaMask not found. Please install MetaMask.';
 				}
 			}, 1000);
 		});

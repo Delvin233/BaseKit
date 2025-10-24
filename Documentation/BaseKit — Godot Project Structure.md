@@ -34,7 +34,7 @@ base-kit-godot-sdk/
 │   └── themes/
 │       └── basekit_theme.tres   # UI styling
 │
-├── dino_game/                   # Chrome Dino Demo Game
+├── coin_adventure/              # Coin Adventure Demo Game
 │   ├── scenes/
 │   │   ├── main_menu.tscn       # Start screen + login
 │   │   ├── game_scene.tscn      # Main gameplay
@@ -42,21 +42,22 @@ base-kit-godot-sdk/
 │   │   └── leaderboard.tscn     # High scores with Base Names
 │   ├── scripts/
 │   │   ├── main_menu.gd         # Menu logic + BaseKit integration
-│   │   ├── dino_player.gd       # Jump physics & controls
+│   │   ├── player.gd            # Movement physics & controls
 │   │   ├── obstacle_spawner.gd  # Cactus generation system
 │   │   ├── ground_scroller.gd   # Moving background
 │   │   ├── score_manager.gd     # Points + BaseKit integration
 │   │   └── game_manager.gd      # Overall game state
 │   └── assets/
 │       ├── sprites/
-│       │   ├── dino_idle.png    # Dino standing
-│       │   ├── dino_jump.png    # Dino jumping
-│       │   ├── cactus_small.png # Small obstacle
-│       │   ├── cactus_large.png # Large obstacle
+│       │   ├── player_idle.png  # Player standing
+│       │   ├── player_move.png  # Player moving
+│       │   ├── coin.png         # Collectible coin
+│       │   ├── obstacle_small.png # Small obstacle
+│       │   ├── obstacle_large.png # Large obstacle
 │       │   ├── ground_tile.png  # Repeating ground
 │       │   └── cloud.png        # Background decoration
 │       ├── sounds/
-│       │   ├── jump.wav         # Jump sound effect
+│       │   ├── collect.wav      # Coin collect sound
 │       │   ├── hit.wav          # Collision sound
 │       │   └── score.wav        # Point earned sound
 │       └── fonts/
@@ -155,29 +156,30 @@ ProfileDisplay (Control)
 
 ### **Demo Game Files**
 
-**dino_game/scripts/dino_player.gd**
+**coin_adventure/scripts/player.gd**
 ```gdscript
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -400.0
-const GRAVITY = 980.0
-
-var is_jumping = false
+const SPEED = 300.0
 
 func _physics_process(delta):
-    # Handle gravity
-    if not is_on_floor():
-        velocity.y += GRAVITY * delta
+    # Handle movement
+    var direction = Vector2.ZERO
     
-    # Handle jump
-    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-        velocity.y = JUMP_VELOCITY
-        is_jumping = true
+    if Input.is_action_pressed("ui_right"):
+        direction.x += 1
+    if Input.is_action_pressed("ui_left"):
+        direction.x -= 1
+    if Input.is_action_pressed("ui_down"):
+        direction.y += 1
+    if Input.is_action_pressed("ui_up"):
+        direction.y -= 1
     
+    velocity = direction.normalized() * SPEED
     move_and_slide()
 ```
 
-**dino_game/scripts/score_manager.gd**
+**coin_adventure/scripts/score_manager.gd**
 ```gdscript
 extends Node
 
@@ -268,7 +270,7 @@ script="plugin.gd"
 **Day 1:** Focus on `basekit/` core files
 **Day 2:** Build `ui/` components and basic RPC
 **Day 3:** Complete `basekit/basename_resolver.gd`
-**Day 4:** Create entire `dino_game/` folder
+**Day 4:** Create entire `coin_adventure/` folder
 **Day 5:** Polish `examples/` and `docs/`
 
 ### **Git Structure:**
@@ -276,7 +278,7 @@ script="plugin.gd"
 main branch
 ├── feature/wallet-connection
 ├── feature/basename-resolution
-├── feature/dino-game
+├── feature/coin-adventure
 └── feature/documentation
 ```
 
@@ -301,7 +303,7 @@ main branch
 - `basekit/session_manager.gd` (persistence)
 
 ### **Day 4 - Game Development:**
-- All files in `dino_game/` folder
+- All files in `coin_adventure/` folder
 - Game scenes, scripts, and assets
 - BaseKit integration in game
 

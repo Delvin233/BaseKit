@@ -1,4 +1,6 @@
-# BaseKit 
+# BaseKit
+
+![Basekit Logo](/basekitlogocanva.jpg)
 
 **Multi-Engine Web3 Gaming SDK powered by Base Names**
 
@@ -10,7 +12,7 @@ BaseKit is a comprehensive Web3 gaming SDK that allows game developers to integr
 
 Instead of showing cryptic wallet addresses like `0x1234...5678`, your players see their actual Base Names like `alice.base.eth`.
 
-##  Features
+## Features
 
 - ** Wallet Connection** - Connect to Base network via RPC
 - ** Base Name Resolution** - Convert addresses to readable Base Names
@@ -19,27 +21,30 @@ Instead of showing cryptic wallet addresses like `0x1234...5678`, your players s
 - ** Easy Integration** - Simple API for developers (GDScript now, more engines coming)
 - ** Demo Game** - Coin Adventure showcasing BaseKit integration
 
-##  Engine Support
+## Engine Support
 
-###  **Currently Supported:**
+### **Currently Supported:**
+
 - **Godot Engine 4.x** - Full SDK with GDScript API
 
-###  **Coming Soon:**
+### **Coming Soon:**
+
 - **Unity** - C# SDK (Q2 2024)
 - **Unreal Engine** - C++/Blueprint SDK (Q3 2024)
 - **GameMaker Studio** - GML SDK (Q4 2024)
 - **Construct 3** - JavaScript SDK (Q4 2024)
 
-##  Demo: Chrome Dino with Web3 Identity
+## Demo: Coin Adventure with Web3 Identity
 
-Our demo game is a Coin Adventure where:
+Our demo game is a platformer-style Coin Adventure where:
 
 - Players sign in with their Base wallet
-- High scores show Base Names instead of "Anonymous"
-- Leaderboards display actual Web3 identities
-- Avatars appear next to player names
+- Collect coins while jumping across platforms
+- Game displays Base Names instead of wallet addresses
+- Score tracking with Web3 identity integration
+- Copy/disconnect functionality built-in
 
-##  Quick Start (Godot)
+## Quick Start (Godot)
 
 ```gdscript
 # Connect wallet and get Base Name
@@ -55,22 +60,23 @@ func _on_wallet_connected(address: String):
 
 > **Note:** Unity and Unreal Engine SDKs coming soon with similar ease of integration!
 
-##  Project Structure
+## Project Structure
 
 ```
 BaseKit/
 ├── base-kit-godot-sdk/          # Main Godot project
-│   ├── basekit/                 # SDK core files
-│   ├── ui/                      # Login UI components
-│   ├── tests/                   # Test scenes and scripts
-│   ├── examples/                # Integration examples
-│   └── simple_demo.tscn         # Main demo
-├── docs/                        # Documentation
+│   ├── addons/basekit/          # SDK core files
+│   ├── examples/                # Coin Adventure platformer game
+│   │   ├── scenes/              # Game scenes (player, coins, platforms)
+│   │   ├── scripts/             # Game logic and BaseKit integration
+│   │   └── assets/              # Sprites, sounds, fonts
+│   └── tests/                   # Test scenes and scripts
+├── Documentation/               # Comprehensive documentation
 ├── ROADMAP.md                   # Future vision
 └── README.md                    # This file
 ```
 
-##  Development Timeline
+## Development Timeline
 
 - **Task 1:** Project setup & basic UI
 - **Task 2:** RPC connection & wallet logic
@@ -78,19 +84,19 @@ BaseKit/
 - **Task 4:** Coin Adventure game development
 - **Task 5:** Polish, testing & documentation
 
-##  Base Network Integration
+## Base Network Integration
 
 - **Network:** Base Mainnet (Chain ID: 8453)
 - **RPC Endpoint:** `https://mainnet.base.org`
 - **ENS Support:** Base Names resolution
 - **IPFS:** Avatar loading from decentralized storage
 
-##  Team
+## Team
 
 - **Delvin Yamoah** - SDK structure, Base Name resolution, session logic
 - **Gideon Adjei** - Wallet connection, RPC testing, UI integration
 
-##  Documentation
+## Documentation
 
 For comprehensive documentation, see the [Documentation/](Documentation/) folder:
 
@@ -100,7 +106,7 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 - [ Godot Project Structure](Documentation/BaseKit%20—%20Godot%20Project%20Structure.md) - SDK organization
 - [ Future Roadmap](Documentation/ROADMAP.md) - Vision for Web3 Gaming Infrastructure
 
-##  Why BaseKit?
+## Why BaseKit?
 
 **Problem:** Web3 games show ugly wallet addresses instead of human-readable identities.
 
@@ -108,20 +114,23 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 
 **Result:** Better UX, recognizable player identities, and seamless Web3 integration.
 
-##  Getting Started
+## Getting Started
 
 ### For Godot Engine (Available Now):
+
 1. Clone this repository
 2. Open `base-kit-godot-sdk/` in Godot 4.5+
-3. Run the Coin Adventure demo
-4. Integrate BaseKit into your own game
+3. Run the project to see the main menu
+4. Connect wallet and play Coin Adventure
+5. Integrate BaseKit into your own game
 
 ### For Other Engines:
+
 - **Unity Developers:** [Join waitlist](mailto:unity@basekit.dev) for early access
 - **Unreal Developers:** [Join waitlist](mailto:unreal@basekit.dev) for early access
 - **Other Engines:** [Contact us](mailto:hello@basekit.dev) for custom integration
 
-##  License
+## License
 
 MIT License - Build amazing Web3 games with BaseKit!
 

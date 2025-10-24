@@ -85,10 +85,10 @@ BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 - **Streaming Integration** - Twitch/YouTube with crypto rewards
 - **Mobile SDK** - BaseKit for mobile games
 
-##  Demo Roadmap: Chrome Dino Evolution
+##  Demo Roadmap: Coin Adventure Evolution
 
 ### **v1.0 (Current)**
-- Basic dino game with Web3 identity
+- Basic coin collection game with Web3 identity
 - Local high scores with Base Names
 
 ### **v2.0 (Next)**
@@ -98,13 +98,13 @@ BaseKit.get_leaderboard(game_id, limit)        # Fetch rankings
 
 ### **v3.0 (Future)**
 - Daily tournaments with prize pools
-- Cosmetic NFTs (different dino skins)
+- Cosmetic NFTs (different character skins)
 - Token rewards for playing
 
 ### **v4.0 (Vision)**
-- Cross-game dino NFT (use in other BaseKit games)
-- Breeding system (combine dino traits)
-- Dino racing tournaments with betting
+- Cross-game character NFT (use in other BaseKit games)
+- Character customization system
+- Multiplayer coin collection tournaments
 
 ##  Market Vision
 
