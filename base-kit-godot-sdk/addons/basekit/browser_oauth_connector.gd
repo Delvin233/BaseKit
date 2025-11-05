@@ -13,23 +13,18 @@ var server_port: int = 8080
 func _ready():
 	print("[BrowserOAuth] Initialized")
 
-# Start OAuth-style wallet connection
+# Start wallet connection via BaseKit connector
 func connect_wallet() -> void:
-	print("[BrowserOAuth] Starting browser OAuth connection...")
+	print("[BrowserOAuth] Starting BaseKit wallet connection...")
 	
 	# Generate unique session ID
 	auth_session_id = _generate_session_id()
 	
-	# Start local HTTP server to receive callback
-	_start_callback_server()
+	# Open BaseKit connector directly - no localhost needed
+	_open_basekit_connector()
 	
-	# Wait longer for server to be ready, then open browser
-	await get_tree().create_timer(1.0).timeout
-	if http_server and http_server.is_listening():
-		_open_browser_auth()
-	else:
-		print("[BrowserOAuth] Server not ready, connection failed")
-		connection_failed.emit("Failed to start local server")
+	# Start polling for connection result
+	_start_connection_polling()
 
 # Generate unique session ID
 func _generate_session_id() -> String:
@@ -38,7 +33,52 @@ func _generate_session_id() -> String:
 		session += "%02x" % randi_range(0, 255)
 	return session
 
-# Start local HTTP server for OAuth callback
+var polling_timer: Timer
+var polling_http: HTTPRequest
+
+# Poll BaseKit API for connection result
+func _start_connection_polling() -> void:
+	if polling_timer:
+		polling_timer.queue_free()
+	
+	polling_timer = Timer.new()
+	add_child(polling_timer)
+	polling_timer.wait_time = 2.0
+	polling_timer.timeout.connect(_check_connection_status)
+	polling_timer.start()
+
+func _check_connection_status() -> void:
+	if polling_http and polling_http.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		return  # Still processing previous request
+	
+	if polling_http:
+		polling_http.queue_free()
+	
+	polling_http = HTTPRequest.new()
+	add_child(polling_http)
+	polling_http.request_completed.connect(_on_status_response)
+	polling_http.request("https://basekit.info/api/session/" + auth_session_id)
+
+func _on_status_response(result: int, code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+	if code == 200:
+		var json = JSON.new()
+		if json.parse(body.get_string_from_utf8()) == OK:
+			var data = json.data
+			if data.has("address"):
+				_stop_polling()
+				_on_wallet_connected(data.address)
+
+func _stop_polling() -> void:
+	if polling_timer:
+		polling_timer.stop()
+		polling_timer.queue_free()
+		polling_timer = null
+	
+	if polling_http:
+		polling_http.queue_free()
+		polling_http = null
+
+# Legacy function - no longer needed
 func _start_callback_server() -> void:
 	http_server = TCPServer.new()
 	
@@ -156,13 +196,11 @@ Content-Type: text/html
 	client.put_data(response.to_utf8_buffer())
 	client.disconnect_from_host()
 
-# Open browser to authentication page
-func _open_browser_auth() -> void:
-	var auth_url = "http://localhost:" + str(server_port) + "/auth"
-	print("[BrowserOAuth] Server listening on port: ", server_port)
-	print("[BrowserOAuth] Server is_listening: ", http_server.is_listening())
-	print("[BrowserOAuth] Opening browser to: ", auth_url)
-	OS.shell_open(auth_url)
+# Open BaseKit connector for wallet connection
+func _open_basekit_connector() -> void:
+	var connector_url = "https://basekit.info/wallet?session=" + auth_session_id
+	print("[BrowserOAuth] Opening BaseKit connector: ", connector_url)
+	OS.shell_open(connector_url)
 
 # Generate authentication HTML page
 func _get_auth_html() -> String:
@@ -301,8 +339,12 @@ func _stop_callback_server() -> void:
 
 # Handle successful wallet connection
 func _on_wallet_connected(address: String) -> void:
+	if connected_address == address:
+		return  # Already connected to this address
+	
 	connected_address = address
 	print("[BrowserOAuth] ✅ Wallet connected: ", address)
+	_stop_polling()
 	wallet_connected.emit(address)
 	
 	# Stop the server after successful connection

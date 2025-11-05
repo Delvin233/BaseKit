@@ -16,9 +16,14 @@ func _ready() -> void:
 	# Initially hide start button until wallet is connected
 	start_button.visible = false
 	
-	# Check if already connected
+	# Check if already connected (with delay to allow session loading)
+	await get_tree().process_frame
 	if BaseKit.is_wallet_connected():
+		print("[MainMenu] Wallet already connected, showing connected state")
 		_show_connected_state()
+	else:
+		print("[MainMenu] No wallet connected, showing disconnected state")
+		_show_disconnected_state()
 
 func _on_wallet_connected(address: String):
 	_show_connected_state()
@@ -28,18 +33,24 @@ func _on_wallet_disconnected():
 
 func _on_basename_resolved(address: String, basename: String):
 	game_title.text = "Welcome to Coin Adventure !"
+	# Get registry stats for demo
+	BaseKit.get_registry_stats()
 
 func _show_connected_state():
+	print("[MainMenu] Showing connected state")
 	basekit_button.visible = true
 	start_button.visible = true
 	
 	# Update title with Base Name or address
 	var display_name = BaseKit.get_base_name()
 	if display_name.is_empty():
-		display_name = BaseKit.get_address()
+		display_name = BaseKit.get_connected_address()
+	if display_name.is_empty():
+		display_name = "Connected User"
 	game_title.text = "Welcome, " + display_name + "!"
 
 func _show_disconnected_state():
+	print("[MainMenu] Showing disconnected state")
 	basekit_button.visible = true
 	start_button.visible = false
 	game_title.text = "Coin Adventure"

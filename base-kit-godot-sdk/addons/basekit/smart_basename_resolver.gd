@@ -40,6 +40,12 @@ func resolve_base_name(address: String) -> void:
 func _try_basename_api(address: String) -> void:
 	print("[SmartResolver] Trying Base Name resolution...")
 	
+	# Check if HTTP request is busy
+	if http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		print("[SmartResolver] HTTP request busy, trying RPC method...")
+		_try_rpc_method(address)
+		return
+	
 	# Try Alchemy API for Base NFTs (this actually works!)
 	var url = "https://base-mainnet.g.alchemy.com/nft/v2/demo/getNFTs?owner=" + address + "&contractAddresses[]=0x03c4738ee98ae44591e1a4a4f3cab6641d95dd9a"
 	
@@ -122,6 +128,14 @@ func resolve_avatar(base_name: String) -> void:
 func _try_ens_avatar(base_name: String) -> void:
 	print("[SmartResolver] Trying to get ENS avatar for: ", base_name)
 	
+	# Check if HTTP request is busy
+	if http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		print("[SmartResolver] HTTP request busy, using fallback avatar")
+		var fallback_url = "https://api.dicebear.com/7.x/identicon/png?seed=" + base_name + "&size=64"
+		avatar_cache[base_name] = fallback_url
+		avatar_resolved.emit(base_name, fallback_url)
+		return
+	
 	# Use ENS metadata service for avatar
 	var url = "https://metadata.ens.domains/mainnet/avatar/" + base_name
 	
@@ -131,7 +145,7 @@ func _try_ens_avatar(base_name: String) -> void:
 	var error = http_request.request(url)
 	if error != OK:
 		# Fallback to generated avatar
-		var fallback_url = "https://api.dicebear.com/7.x/identicon/svg?seed=" + base_name
+		var fallback_url = "https://api.dicebear.com/7.x/identicon/png?seed=" + base_name + "&size=64"
 		avatar_cache[base_name] = fallback_url
 		avatar_resolved.emit(base_name, fallback_url)
 

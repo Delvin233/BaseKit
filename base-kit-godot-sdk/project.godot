@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="BaseKit-Godot-SDK"
+config/name="Coin Adventure"
 run/main_scene="res://examples/scenes/main_menu.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
