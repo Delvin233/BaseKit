@@ -19,7 +19,7 @@ var wallet_connector: BrowserOAuthConnector
 var basename_resolver: SmartBaseNameResolver
 var session_manager: SessionManager
 var avatar_loader: AvatarLoader
-var contract_caller: BaseContractCaller
+
 var registry_connector: RegistryConnector
 
 func _ready():
@@ -43,9 +43,6 @@ func _setup_components():
 	session_manager = SessionManager.new()
 	add_child(session_manager)
 	
-	# Create contract caller
-	contract_caller = BaseContractCaller.new()
-	add_child(contract_caller)
 	
 	# Create registry connector
 	registry_connector = RegistryConnector.new()
@@ -59,7 +56,7 @@ func _setup_components():
 	avatar_loader.avatar_loaded.connect(_on_avatar_loaded)
 	avatar_loader.avatar_failed.connect(_on_avatar_failed)
 	session_manager.session_loaded.connect(_on_session_loaded)
-	contract_caller.contract_call_completed.connect(_on_contract_call_completed)
+
 	registry_connector.game_registered.connect(_on_game_registered)
 	registry_connector.player_registered.connect(_on_player_registered)
 	registry_connector.stats_loaded.connect(_on_stats_loaded)
@@ -182,9 +179,7 @@ func _on_session_loaded(address: String, basename: String):
 	if session_data.has("avatar_url") and session_data.avatar_url != "":
 		avatar_loader.load_avatar(session_data.avatar_url)
 
-func _on_contract_call_completed(result: String, context: Dictionary):
-	print("[BaseKit] Contract call completed: ", context.get("method", "unknown"))
-	# Handle different contract call results here
+
 
 # Registry callbacks
 # Registry callbacks
