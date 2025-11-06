@@ -1,28 +1,22 @@
-# Godot 4+ specific ignores
+# Godot
 .godot/
 .import/
+export.cfg
+export_presets.cfg
 
-# Godot-specific ignores
-*.tmp
-*.translation
-*.godot
+# Private keys and secrets
+wallet_config.gd
+.env
+*.key
+*.pem
 
-# Editor-specific ignores
+# IDE
 .vscode/
 .idea/
 
-# OS-specific ignores
+# OS
 .DS_Store
 Thumbs.db
 
-# Build outputs
-builds/
-exports/
-
 # Logs
 *.log
-
-# Temporary files
-*~
-*.swp
-*.swo

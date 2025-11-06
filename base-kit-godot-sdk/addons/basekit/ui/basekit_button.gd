@@ -34,6 +34,12 @@ func _ready():
 		get_tree().root.add_child.call_deferred(user_modal)
 		user_modal.copy_name_requested.connect(_on_copy_name)
 		user_modal.disconnect_requested.connect(_on_disconnect_user)
+		
+		# Check for existing connection after a frame
+		await get_tree().process_frame
+		if BaseKit.is_wallet_connected():
+			is_connected = true
+			print("[BaseKitButton] Detected existing connection")
 	
 	# Connect button press
 	pressed.connect(_on_button_pressed)

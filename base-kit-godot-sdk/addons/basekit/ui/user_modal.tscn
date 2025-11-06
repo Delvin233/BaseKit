@@ -46,4 +46,4 @@ text = "📋 Copy"
 [node name="DisconnectButton" type="Button" parent="ModalBG/ModalPanel/ButtonsHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "🚪 Disconnect"
+text = " Disconnect"

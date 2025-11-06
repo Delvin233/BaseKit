@@ -14,12 +14,13 @@ Instead of showing cryptic wallet addresses like `0x1234...5678`, your players s
 
 ## Features
 
-- ** Wallet Connection** - Connect to Base network via RPC
-- ** Base Name Resolution** - Convert addresses to readable Base Names
-- ** Avatar Support** - Display user avatars from ENS records
-- ** Session Management** - Persistent login across game sessions
-- ** Easy Integration** - Simple API for developers (GDScript now, more engines coming)
-- ** Demo Game** - Coin Adventure showcasing BaseKit integration
+- **Wallet Connection** - Connect to Base network via RPC
+- **Base Name Resolution** - Convert addresses to readable Base Names
+- **Avatar Support** - Display user avatars from ENS records
+- **Session Management** - Persistent login across game sessions
+- **User Registry** - Automatic cross-game user tracking on Base Sepolia
+- **⚡ Easy Integration** - Simple API for developers (GDScript now, more engines coming)
+- **🎮 Demo Game** - Coin Adventure showcasing BaseKit integration
 
 ## Engine Support
 
@@ -50,12 +51,13 @@ Our demo game is a platformer-style Coin Adventure where:
 # Connect wallet and get Base Name
 func _ready():
     BaseKit.wallet_connected.connect(_on_wallet_connected)
-    BaseKit.connect_wallet()
+    BaseKit.connect_wallet()  # Automatically registers user in global registry
 
 func _on_wallet_connected(address: String):
     var base_name = BaseKit.get_base_name()
     var avatar = BaseKit.get_avatar()
     print("Welcome, " + base_name + "!")
+    # User is now part of the BaseKit ecosystem!
 ```
 
 > **Note:** Unity and Unreal Engine SDKs coming soon with similar ease of integration!
@@ -86,10 +88,13 @@ BaseKit/
 
 ## Base Network Integration
 
-- **Network:** Base Mainnet (Chain ID: 8453)
-- **RPC Endpoint:** `https://mainnet.base.org`
+- **Network:** Base Mainnet (Chain ID: 8453) / Base Sepolia (Chain ID: 84532)
+- **RPC Endpoint:** `https://mainnet.base.org` / `https://sepolia.base.org`
 - **ENS Support:** Base Names resolution
 - **IPFS:** Avatar loading from decentralized storage
+- **User Registry:** Smart contract tracking unique users across all BaseKit games
+  - **Contract Address:** `0x440D73Ce6E944f50b8F900868517810c8ab2B451` (Base Sepolia)
+  - **Live Stats:** [View on Blockscout](https://base-sepolia.blockscout.com/address/0x440D73Ce6E944f50b8F900868517810c8ab2B451?tab=contract)
 
 ## Team
 
@@ -112,7 +117,7 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 
 **The Problem is Bigger Than You Think:**
 
-95% of Web3 games today suffer from the same fundamental flaw: they treat players as wallet addresses, not humans. When Sarah connects her wallet to play a game, she becomes `0x742d35Cc6634C0532925a3b8D404d3aABb8cf7c3` instead of "Sarah" or "sarah.base.eth". 
+95% of Web3 games today suffer from the same fundamental flaw: they treat players as wallet addresses, not humans. When Sarah connects her wallet to play a game, she becomes `0x742d35Cc6634C0532925a3b8D404d3aABb8cf7c3` instead of "Sarah" or "sarah.base.eth".
 
 **This Creates Multiple Issues:**
 
@@ -125,11 +130,13 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 ### Current Market Reality
 
 **For Players:**
+
 - Web3 games feel technical, not social
 - Identity doesn't persist across games
 - Addresses are impossible to remember or share
 
 **For Developers:**
+
 - Wallet integration takes 3-5 days minimum
 - Requires blockchain expertise most teams lack
 - No standardized solution across game engines
@@ -138,6 +145,7 @@ For comprehensive documentation, see the [Documentation/](Documentation/) folder
 ### The BaseKit Solution
 
 **Transform This:**
+
 ```
 Player 1: 0x742d35Cc6634C0532925a3b8D404d3aABb8cf7c3
 Player 2: 0x8ba1f109551bD432803012645Hac136c34B
@@ -145,40 +153,57 @@ Player 3: 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
 ```
 
 **Into This:**
+
 ```
 Sarah 👩‍💻 (sarah.base.eth)
-Alex 🎮 (alex.base.eth)  
+Alex 🎮 (alex.base.eth)
 Jordan 🏆 (jordan.base.eth)
 ```
 
 **With Just One Line of Code:**
+
 ```gdscript
-BaseKit.connect_wallet()  # That's it!
+BaseKit.connect_wallet()  # Connects wallet + joins ecosystem!
 ```
+
+### 🌐 Cross-Game Ecosystem
+
+**Shared User Registry:** Every game using BaseKit contributes to a unified user count, creating network effects:
+
+- **For Players:** Same identity across all BaseKit games
+- **For Developers:** Benefit from the growing BaseKit user base
+- **For Ecosystem:** Stronger together - more games = more users for everyone
+
+**Live Stats:** [Current BaseKit Users](https://base-sepolia.blockscout.com/address/0x440D73Ce6E944f50b8F900868517810c8ab2B451?tab=contract)
 
 ### Why BaseKit Wins
 
 **1. Human-First Design**
+
 - Base Names make players recognizable
 - Avatar integration provides visual identity
 - Social gaming becomes natural again
 
 **2. Developer Experience**
+
 - 5-minute integration vs 5-day implementation
 - No blockchain knowledge required
 - Works with existing game architecture
 
 **3. Cross-Game Persistence**
+
 - Same identity across all BaseKit games
 - Build reputation and recognition
 - True Web3 gaming ecosystem
 
 **4. Built on Base**
+
 - Fast, cheap transactions
 - Coinbase ecosystem integration
 - Growing developer community
 
 **5. Multi-Engine Vision**
+
 - Godot (available now)
 - Unity, Unreal, GameMaker (coming soon)
 - Same API across all platforms
@@ -194,7 +219,7 @@ BaseKit.connect_wallet()  # That's it!
 
 ---
 
-*BaseKit doesn't just solve a technical problem—it solves a human problem. We're making Web3 gaming social again.*
+_BaseKit doesn't just solve a technical problem—it solves a human problem. We're making Web3 gaming social again._
 
 ## Getting Started
 

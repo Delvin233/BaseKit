@@ -23,7 +23,7 @@ func save_session(address: String, basename: String, avatar_url: String = "") ->
 		"basename": basename,
 		"avatar_url": avatar_url,
 		"timestamp": Time.get_unix_time_from_system(),
-		"expiry": Time.get_unix_time_from_system() + (BaseKitConfig.SESSION_EXPIRATION_DAYS * 24 * 60 * 60)
+		"expiry": Time.get_unix_time_from_system() + (1 * 24 * 60 * 60)  # 1 day expiry
 	}
 	
 	var file = FileAccess.open(SESSION_FILE, FileAccess.WRITE)

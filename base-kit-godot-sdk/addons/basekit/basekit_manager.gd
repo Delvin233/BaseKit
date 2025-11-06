@@ -19,7 +19,8 @@ var wallet_connector: BrowserOAuthConnector
 var basename_resolver: SmartBaseNameResolver
 var session_manager: SessionManager
 var avatar_loader: AvatarLoader
-var contract_caller: BaseContractCaller
+
+var registry_connector: RegistryConnector
 
 func _ready():
 	print("[BaseKit] Manager initialized")
@@ -42,9 +43,10 @@ func _setup_components():
 	session_manager = SessionManager.new()
 	add_child(session_manager)
 	
-	# Create contract caller
-	contract_caller = BaseContractCaller.new()
-	add_child(contract_caller)
+	
+	# Create registry connector
+	registry_connector = RegistryConnector.new()
+	add_child(registry_connector)
 	
 	# Connect signals
 	wallet_connector.wallet_connected.connect(_on_wallet_connection_success)
@@ -54,7 +56,11 @@ func _setup_components():
 	avatar_loader.avatar_loaded.connect(_on_avatar_loaded)
 	avatar_loader.avatar_failed.connect(_on_avatar_failed)
 	session_manager.session_loaded.connect(_on_session_loaded)
-	contract_caller.contract_call_completed.connect(_on_contract_call_completed)
+
+	registry_connector.game_registered.connect(_on_game_registered)
+	registry_connector.player_registered.connect(_on_player_registered)
+	registry_connector.stats_loaded.connect(_on_stats_loaded)
+	registry_connector.game_exists_checked.connect(_on_game_exists_checked)
 	
 	# Try to load existing session
 	_try_auto_login()
@@ -92,6 +98,19 @@ func get_avatar() -> Texture2D:
 func is_wallet_connected() -> bool:
 	return is_connected
 
+# Registry Functions
+func register_with_basekit(game_name: String) -> void:
+	print("[BaseKit] Registering game with BaseKit: ", game_name)
+	if is_connected and registry_connector:
+		registry_connector.register_game(game_name, current_address)
+	else:
+		print("[BaseKit] Cannot register game - wallet not connected")
+
+func get_registry_stats() -> void:
+	print("[BaseKit] Getting registry statistics...")
+	if registry_connector:
+		registry_connector.get_stats()
+
 # Helper Functions
 func _format_address(address: String) -> String:
 	if address.length() < 10:
@@ -105,6 +124,9 @@ func _on_wallet_connection_success(address: String):
 	
 	print("[BaseKit] Wallet connected successfully: ", address)
 	wallet_connected.emit(address)
+	
+	# Smart registration: check if game exists, if not register it first
+	_smart_register_game_and_player()
 	
 	# Resolve Base Name using the resolver
 	if basename_resolver:
@@ -149,14 +171,67 @@ func _on_session_loaded(address: String, basename: String):
 	wallet_connected.emit(address)
 	basename_resolved.emit(address, basename)
 	
+	# IMPORTANT: Also register user on session restore
+	_register_user_immediately(address)
+	
 	# Try to load cached avatar
 	var session_data = session_manager.get_current_session()
 	if session_data.has("avatar_url") and session_data.avatar_url != "":
 		avatar_loader.load_avatar(session_data.avatar_url)
 
-func _on_contract_call_completed(result: String, context: Dictionary):
-	print("[BaseKit] Contract call completed: ", context.get("method", "unknown"))
-	# Handle different contract call results here
+
+
+# Registry callbacks
+# Registry callbacks
+func _on_game_registered(success: bool):
+	if success:
+		print("[BaseKit] ✅ Game registered successfully! (First time setup)")
+	else:
+		print("[BaseKit] ❌ Game registration failed")
+	# No longer auto-registering player here
+
+# Callback for game existence check (not used in simple mode)
+func _on_game_exists_checked(exists: bool, game_name: String):
+	# Not used in current simple implementation
+	pass
+
+func _on_player_registered(success: bool):
+	if success:
+		print("[BaseKit] ✅ Player registered successfully!")
+	else:
+		print("[BaseKit] ❌ Player registration failed (might already be registered)")
+	# Continue with game flow regardless of registration result
+
+func _on_stats_loaded(total_games: int, total_players: int):
+	print("[BaseKit] 📊 Registry Stats - Games: ", total_games, ", Players: ", total_players)
+
+# Immediate user registration on wallet connect
+func _smart_register_game_and_player():
+	var game_name = ProjectSettings.get_setting("application/config/name", "Unknown Game")
+	print("[BaseKit] Registering user immediately for: ", game_name)
+	
+	# Register user immediately (contract handles duplicates)
+	if registry_connector:
+		_register_user_immediately(current_address)
+
+func _register_user_immediately(user_address: String):
+	print("[BaseKit] 🚀 Registering user immediately: ", user_address)
+	
+	# Open browser immediately for user registration using simple increment
+	var function_hash = "0xd09de08a"  # increment()
+	var connector_url = "https://basekit.info/connect?to=" + registry_connector.REGISTRY_ADDRESS + "&data=" + function_hash + "&from=" + user_address
+	
+	print("[BaseKit] Opening registration immediately...")
+	OS.shell_open(connector_url)
+	print("[BaseKit] ✅ User registration opened - please sign!")
+
+# Manual game registration (for game owner only)
+func register_game_as_owner(game_name: String):
+	print("[BaseKit] Owner registering game: ", game_name)
+	if registry_connector and is_connected:
+		registry_connector.register_game(game_name, current_address)
+	else:
+		print("[BaseKit] Cannot register game - wallet not connected")
 
 # Auto-login functionality
 func _try_auto_login():

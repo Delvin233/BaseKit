@@ -6,7 +6,7 @@ signal avatar_resolved(name: String, avatar_url: String)
 signal resolution_failed(address: String, error: String)
 
 var http_request: HTTPRequest
-var current_rpc_url: String = BaseKitConfig.BASE_RPC_URL
+var current_rpc_url: String = "https://mainnet.base.org"
 
 # Cache for resolved names
 var name_cache: Dictionary = {}
@@ -39,6 +39,12 @@ func resolve_base_name(address: String) -> void:
 # Method 1: Try Base Name API (real implementation)
 func _try_basename_api(address: String) -> void:
 	print("[SmartResolver] Trying Base Name resolution...")
+	
+	# Check if HTTP request is busy
+	if http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		print("[SmartResolver] HTTP request busy, trying RPC method...")
+		_try_rpc_method(address)
+		return
 	
 	# Try Alchemy API for Base NFTs (this actually works!)
 	var url = "https://base-mainnet.g.alchemy.com/nft/v2/demo/getNFTs?owner=" + address + "&contractAddresses[]=0x03c4738ee98ae44591e1a4a4f3cab6641d95dd9a"
@@ -74,8 +80,13 @@ func _try_rpc_method(address: String) -> void:
 	# even if we can't implement full ENS resolution in Godot
 	
 	# Check if address is in our known Base Names
-	if BaseKitConfig.TEST_ADDRESSES.has(address):
-		var name = BaseKitConfig.TEST_ADDRESSES[address]
+	# Test addresses for demo
+	var test_addresses = {
+		"0x742d35Cc6634C0532925a3b8D404d3aABb8cf7c3": "alice.base.eth",
+		"0x4298d42cf8a15b88ee7d9cd36ad3686f9b9fd5f6": "delviny233.base.eth"
+	}
+	if test_addresses.has(address):
+		var name = test_addresses[address]
 		print("[SmartResolver] Found in known Base Names: ", name)
 		name_cache[address] = name
 		name_resolved.emit(address, name)
@@ -122,6 +133,14 @@ func resolve_avatar(base_name: String) -> void:
 func _try_ens_avatar(base_name: String) -> void:
 	print("[SmartResolver] Trying to get ENS avatar for: ", base_name)
 	
+	# Check if HTTP request is busy
+	if http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		print("[SmartResolver] HTTP request busy, using fallback avatar")
+		var fallback_url = "https://api.dicebear.com/7.x/identicon/png?seed=" + base_name + "&size=64"
+		avatar_cache[base_name] = fallback_url
+		avatar_resolved.emit(base_name, fallback_url)
+		return
+	
 	# Use ENS metadata service for avatar
 	var url = "https://metadata.ens.domains/mainnet/avatar/" + base_name
 	
@@ -131,7 +150,7 @@ func _try_ens_avatar(base_name: String) -> void:
 	var error = http_request.request(url)
 	if error != OK:
 		# Fallback to generated avatar
-		var fallback_url = "https://api.dicebear.com/7.x/identicon/svg?seed=" + base_name
+		var fallback_url = "https://api.dicebear.com/7.x/identicon/png?seed=" + base_name + "&size=64"
 		avatar_cache[base_name] = fallback_url
 		avatar_resolved.emit(base_name, fallback_url)
 
