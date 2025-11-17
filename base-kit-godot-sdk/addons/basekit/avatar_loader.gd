@@ -19,6 +19,12 @@ func load_avatar(url: String) -> void:
 		avatar_failed.emit("Empty URL")
 		return
 	
+	# Check if HTTP request is busy
+	if http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		print("[AvatarLoader] HTTP request busy, waiting...")
+		avatar_failed.emit("HTTP request busy")
+		return
+	
 	var error = http_request.request(url)
 	if error != OK:
 		avatar_failed.emit("Failed to make request: " + str(error))
